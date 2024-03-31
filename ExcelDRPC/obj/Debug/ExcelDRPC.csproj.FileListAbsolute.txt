@@ -1,0 +1,10 @@
+C:\Users\MBARK\source\repos\OfficeDRPC\ExcelDRPC\bin\Debug\ExcelDRPC.exe.config
+C:\Users\MBARK\source\repos\OfficeDRPC\ExcelDRPC\bin\Debug\ExcelDRPC.exe
+C:\Users\MBARK\source\repos\OfficeDRPC\ExcelDRPC\bin\Debug\ExcelDRPC.pdb
+C:\Users\MBARK\source\repos\OfficeDRPC\ExcelDRPC\bin\Debug\MBDRPC.dll
+C:\Users\MBARK\source\repos\OfficeDRPC\ExcelDRPC\bin\Debug\MBDRPC.pdb
+C:\Users\MBARK\source\repos\OfficeDRPC\ExcelDRPC\obj\Debug\ExcelDRPC.csproj.AssemblyReference.cache
+C:\Users\MBARK\source\repos\OfficeDRPC\ExcelDRPC\obj\Debug\ExcelDRPC.csproj.CoreCompileInputs.cache
+C:\Users\MBARK\source\repos\OfficeDRPC\ExcelDRPC\obj\Debug\ExcelDRPC.csproj.Up2Date
+C:\Users\MBARK\source\repos\OfficeDRPC\ExcelDRPC\obj\Debug\ExcelDRPC.exe
+C:\Users\MBARK\source\repos\OfficeDRPC\ExcelDRPC\obj\Debug\ExcelDRPC.pdb

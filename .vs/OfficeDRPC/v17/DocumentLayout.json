@@ -1,0 +1,153 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0F7F456E-F4EC-4F5D-8DDD-75EC7BC4EB0F}|AccessDRPC\\AccessDRPC.csproj|c:\\users\\mbark\\source\\repos\\officedrpc\\accessdrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F7F456E-F4EC-4F5D-8DDD-75EC7BC4EB0F}|AccessDRPC\\AccessDRPC.csproj|solutionrelative:accessdrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F7F456E-F4EC-4F5D-8DDD-75EC7BC4EB0F}|AccessDRPC\\AccessDRPC.csproj|C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\accessdrpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F7F456E-F4EC-4F5D-8DDD-75EC7BC4EB0F}|AccessDRPC\\AccessDRPC.csproj|solutionrelative:accessdrpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D588A6E-F027-419D-9115-F9521EDF956D}|PowerPointDRPC\\PowerPointDRPC.csproj|C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\powerpointdrpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D588A6E-F027-419D-9115-F9521EDF956D}|PowerPointDRPC\\PowerPointDRPC.csproj|solutionrelative:powerpointdrpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D588A6E-F027-419D-9115-F9521EDF956D}|PowerPointDRPC\\PowerPointDRPC.csproj|C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\powerpointdrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D588A6E-F027-419D-9115-F9521EDF956D}|PowerPointDRPC\\PowerPointDRPC.csproj|solutionrelative:powerpointdrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{835B7DBC-FB0D-4EE9-B948-0C0554221801}|ExcelDRPC\\ExcelDRPC.csproj|C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\exceldrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{835B7DBC-FB0D-4EE9-B948-0C0554221801}|ExcelDRPC\\ExcelDRPC.csproj|solutionrelative:exceldrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{835B7DBC-FB0D-4EE9-B948-0C0554221801}|ExcelDRPC\\ExcelDRPC.csproj|C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\exceldrpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{835B7DBC-FB0D-4EE9-B948-0C0554221801}|ExcelDRPC\\ExcelDRPC.csproj|solutionrelative:exceldrpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01550B8-A89C-4D22-A50C-E25A60BB42D5}|OfficeDRPC\\OfficeDRPC.csproj|C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\officedrpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01550B8-A89C-4D22-A50C-E25A60BB42D5}|OfficeDRPC\\OfficeDRPC.csproj|solutionrelative:officedrpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01550B8-A89C-4D22-A50C-E25A60BB42D5}|OfficeDRPC\\OfficeDRPC.csproj|C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\officedrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01550B8-A89C-4D22-A50C-E25A60BB42D5}|OfficeDRPC\\OfficeDRPC.csproj|solutionrelative:officedrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PresenceWorker.cs",
+              "DocumentMoniker": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\OfficeDRPC\\PresenceWorker.cs",
+              "RelativeDocumentMoniker": "OfficeDRPC\\PresenceWorker.cs",
+              "ToolTip": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\OfficeDRPC\\PresenceWorker.cs",
+              "RelativeToolTip": "OfficeDRPC\\PresenceWorker.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAA0wDwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T11:35:42.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\OfficeDRPC\\Program.cs",
+              "RelativeDocumentMoniker": "OfficeDRPC\\Program.cs",
+              "ToolTip": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\OfficeDRPC\\Program.cs",
+              "RelativeToolTip": "OfficeDRPC\\Program.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAAACMAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T11:32:43.063Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PresenceWorker.cs",
+              "DocumentMoniker": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\ExcelDRPC\\PresenceWorker.cs",
+              "RelativeDocumentMoniker": "ExcelDRPC\\PresenceWorker.cs",
+              "ToolTip": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\ExcelDRPC\\PresenceWorker.cs",
+              "RelativeToolTip": "ExcelDRPC\\PresenceWorker.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD8AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T14:11:18.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\ExcelDRPC\\Program.cs",
+              "RelativeDocumentMoniker": "ExcelDRPC\\Program.cs",
+              "ToolTip": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\ExcelDRPC\\Program.cs",
+              "RelativeToolTip": "ExcelDRPC\\Program.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAwwAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T14:09:36.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PresenceWorker.cs",
+              "DocumentMoniker": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\PowerPointDRPC\\PresenceWorker.cs",
+              "RelativeDocumentMoniker": "PowerPointDRPC\\PresenceWorker.cs",
+              "ToolTip": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\PowerPointDRPC\\PresenceWorker.cs",
+              "RelativeToolTip": "PowerPointDRPC\\PresenceWorker.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAAAqwEgAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T14:29:10.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\PowerPointDRPC\\Program.cs",
+              "RelativeDocumentMoniker": "PowerPointDRPC\\Program.cs",
+              "ToolTip": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\PowerPointDRPC\\Program.cs",
+              "RelativeToolTip": "PowerPointDRPC\\Program.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAwwDMAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T14:28:39.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PresenceWorker.cs",
+              "DocumentMoniker": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\AccessDRPC\\PresenceWorker.cs",
+              "RelativeDocumentMoniker": "AccessDRPC\\PresenceWorker.cs",
+              "ToolTip": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\AccessDRPC\\PresenceWorker.cs",
+              "RelativeToolTip": "AccessDRPC\\PresenceWorker.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAqwD0AAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T14:44:27.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\AccessDRPC\\Program.cs",
+              "RelativeDocumentMoniker": "AccessDRPC\\Program.cs",
+              "ToolTip": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\AccessDRPC\\Program.cs",
+              "RelativeToolTip": "AccessDRPC\\Program.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAADMAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T14:43:40.801Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
