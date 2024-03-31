@@ -55,7 +55,7 @@ namespace OfficeDRPC
                     wordPresence.InitializePresence("1223964264449183765");
 
                     wordPresence.UpdateLargeImage("wordogo", "Microsoft Word");
-                    wordPresence.UpdateSmallImage("officelogo",GetOfficeVersion());
+                    wordPresence.UpdateSmallImage("microsoft_365__2022_", GetOfficeVersion());
 
                     wordPresence.UpdateDetails(officeAppSubscriptionType);
 

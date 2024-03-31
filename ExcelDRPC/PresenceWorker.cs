@@ -38,7 +38,7 @@ namespace ExcelDRPC
                     presence.InitializePresence("1223982816459489350");
 
                     presence.UpdateLargeImage("exccellogo", "Microsoft Excel");
-                    presence.UpdateSmallImage("officelogo", GetOfficeVersion());
+                    presence.UpdateSmallImage("microsoft_365__2022_", GetOfficeVersion());
 
                     presence.UpdateDetails(officeAppSubscriptionType);
 

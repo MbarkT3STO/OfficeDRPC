@@ -4,7 +4,7 @@ using System.Threading;
 using MBDRPC.Core;
 using MBDRPC.Helpers;
 
-namespace AccessDRPC
+namespace WhiteboardDRPC
 {
 	public class PresenceWorker
     {
@@ -31,8 +31,8 @@ namespace AccessDRPC
             //processName = "Microsoft.WhiteboardApp_8wekyb3d8bbwe!App";       
             processName = "MicrosoftWhiteboard";
 
-            var isPowerPointAppRunning = RunningAppChecker.IsAppRunning(processName);
-            if (isPowerPointAppRunning)
+            var isRunning = RunningAppChecker.IsAppRunning(processName);
+            if (isRunning)
             {
                 if (isFirstRun)
                 {
@@ -41,7 +41,7 @@ namespace AccessDRPC
                     presence.InitializePresence("1224032701879947407");
 
                     presence.UpdateLargeImage("whiteboardlogo", "Microsoft Whiteboard");
-                    presence.UpdateSmallImage("officelogo2", GetOfficeVersion());
+                    presence.UpdateSmallImage("microsoft_365__2022_", GetOfficeVersion());
 
                     presence.UpdateDetails(officeAppSubscriptionType);
 

@@ -38,8 +38,8 @@ namespace PowerPointDRPC
 
                     presence.InitializePresence("1224001855395463208");
 
-                    presence.UpdateLargeImage("powerpointpogo", "Microsoft PowerPoint");
-                    presence.UpdateSmallImage("officelogo2", GetOfficeVersion());
+                    presence.UpdateLargeImage("powerpointlogo", "Microsoft PowerPoint");
+                    presence.UpdateSmallImage("microsoft_365__2022_", GetOfficeVersion());
 
                     presence.UpdateDetails(officeAppSubscriptionType);
 

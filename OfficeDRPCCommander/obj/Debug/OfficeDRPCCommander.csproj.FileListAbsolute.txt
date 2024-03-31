@@ -1,0 +1,10 @@
+C:\Users\MBARK\source\repos\OfficeDRPC\OfficeDRPCCommander\bin\Debug\OfficeDRPCCommander.exe.config
+C:\Users\MBARK\source\repos\OfficeDRPC\OfficeDRPCCommander\bin\Debug\OfficeDRPCCommander.exe
+C:\Users\MBARK\source\repos\OfficeDRPC\OfficeDRPCCommander\bin\Debug\OfficeDRPCCommander.pdb
+C:\Users\MBARK\source\repos\OfficeDRPC\OfficeDRPCCommander\bin\Debug\MBDRPC.dll
+C:\Users\MBARK\source\repos\OfficeDRPC\OfficeDRPCCommander\bin\Debug\MBDRPC.pdb
+C:\Users\MBARK\source\repos\OfficeDRPC\OfficeDRPCCommander\obj\Debug\OfficeDRPCCommander.csproj.AssemblyReference.cache
+C:\Users\MBARK\source\repos\OfficeDRPC\OfficeDRPCCommander\obj\Debug\OfficeDRPCCommander.csproj.CoreCompileInputs.cache
+C:\Users\MBARK\source\repos\OfficeDRPC\OfficeDRPCCommander\obj\Debug\OfficeDR.0CFD86BA.Up2Date
+C:\Users\MBARK\source\repos\OfficeDRPC\OfficeDRPCCommander\obj\Debug\OfficeDRPCCommander.exe
+C:\Users\MBARK\source\repos\OfficeDRPC\OfficeDRPCCommander\obj\Debug\OfficeDRPCCommander.pdb

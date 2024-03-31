@@ -1,0 +1,10 @@
+C:\Users\MBARK\source\repos\OfficeDRPC\OutlookDRPC\bin\Debug\OutlookDRPC.exe.config
+C:\Users\MBARK\source\repos\OfficeDRPC\OutlookDRPC\bin\Debug\OutlookDRPC.exe
+C:\Users\MBARK\source\repos\OfficeDRPC\OutlookDRPC\bin\Debug\OutlookDRPC.pdb
+C:\Users\MBARK\source\repos\OfficeDRPC\OutlookDRPC\bin\Debug\MBDRPC.dll
+C:\Users\MBARK\source\repos\OfficeDRPC\OutlookDRPC\bin\Debug\MBDRPC.pdb
+C:\Users\MBARK\source\repos\OfficeDRPC\OutlookDRPC\obj\Debug\OutlookDRPC.csproj.AssemblyReference.cache
+C:\Users\MBARK\source\repos\OfficeDRPC\OutlookDRPC\obj\Debug\OutlookDRPC.csproj.CoreCompileInputs.cache
+C:\Users\MBARK\source\repos\OfficeDRPC\OutlookDRPC\obj\Debug\OutlookD.2072E5F5.Up2Date
+C:\Users\MBARK\source\repos\OfficeDRPC\OutlookDRPC\obj\Debug\OutlookDRPC.exe
+C:\Users\MBARK\source\repos\OfficeDRPC\OutlookDRPC\obj\Debug\OutlookDRPC.pdb

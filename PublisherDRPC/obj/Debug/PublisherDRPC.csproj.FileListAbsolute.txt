@@ -1,0 +1,10 @@
+C:\Users\MBARK\source\repos\OfficeDRPC\PublisherDRPC\bin\Debug\PublisherDRPC.exe.config
+C:\Users\MBARK\source\repos\OfficeDRPC\PublisherDRPC\bin\Debug\PublisherDRPC.exe
+C:\Users\MBARK\source\repos\OfficeDRPC\PublisherDRPC\bin\Debug\PublisherDRPC.pdb
+C:\Users\MBARK\source\repos\OfficeDRPC\PublisherDRPC\bin\Debug\MBDRPC.dll
+C:\Users\MBARK\source\repos\OfficeDRPC\PublisherDRPC\bin\Debug\MBDRPC.pdb
+C:\Users\MBARK\source\repos\OfficeDRPC\PublisherDRPC\obj\Debug\PublisherDRPC.csproj.AssemblyReference.cache
+C:\Users\MBARK\source\repos\OfficeDRPC\PublisherDRPC\obj\Debug\PublisherDRPC.csproj.CoreCompileInputs.cache
+C:\Users\MBARK\source\repos\OfficeDRPC\PublisherDRPC\obj\Debug\Publishe.EA257684.Up2Date
+C:\Users\MBARK\source\repos\OfficeDRPC\PublisherDRPC\obj\Debug\PublisherDRPC.exe
+C:\Users\MBARK\source\repos\OfficeDRPC\PublisherDRPC\obj\Debug\PublisherDRPC.pdb

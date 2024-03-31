@@ -39,7 +39,7 @@ namespace AccessDRPC
                     presence.InitializePresence("1224007046178013196");
 
                     presence.UpdateLargeImage("accesslogo", "Microsoft Access");
-                    presence.UpdateSmallImage("officelogo2", GetOfficeVersion());
+                    presence.UpdateSmallImage("microsoft_365__2022_", GetOfficeVersion());
 
                     presence.UpdateDetails(officeAppSubscriptionType);
 
