@@ -320,40 +320,56 @@ namespace OfficeDRPCCommander
 
         public void CheckMicrosoftOutlook()
         {
-            //var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\OutlookDRPC\\OutlookDRPC.exe";
+            ////var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\OutlookDRPC\\OutlookDRPC.exe";
+            //const string appPath = @"C:\Users\MBARK\source\repos\OfficeDRPC\OutlookDRPC\bin\Debug\OutlookDRPC.exe";
+
+            //// Create a ProcessStartInfo object and specify the filename of the application to run
+            //var startInfo = new ProcessStartInfo
+            //                {
+            //                    FileName               = appPath,
+            //                    UseShellExecute        = false,
+            //                    RedirectStandardOutput = true,
+            //                    CreateNoWindow         = true
+            //                };
+
+            //var isRunning     = RunningAppChecker.IsAppRunning("olk");
+            //var isDRPCRunning = RunningAppChecker.IsAppRunning("OutlookDRPC");
+
+
+            //if (isRunning && !isDRPCRunning)
+            //{
+            //    using (var process = new Process())
+            //    {
+            //        process.StartInfo = startInfo;
+            //        process.Start();
+            //        process.WaitForExit();
+            //    }
+            //}
+            //else if (!isRunning && isDRPCRunning)
+            //{
+            //    // Kill the process
+            //    var process = Process.GetProcessesByName("OutlookDRPC");
+
+            //    foreach ( var process1 in process )
+            //    {
+            //        process1.Kill();
+            //    }
+            //}
+
+
             const string appPath = @"C:\Users\MBARK\source\repos\OfficeDRPC\OutlookDRPC\bin\Debug\OutlookDRPC.exe";
-
-            // Create a ProcessStartInfo object and specify the filename of the application to run
-            var startInfo = new ProcessStartInfo
-                            {
-                                FileName               = appPath,
-                                UseShellExecute        = false,
-                                RedirectStandardOutput = true,
-                                CreateNoWindow         = true
-                            };
-
-            var isRunning     = RunningAppChecker.IsOneAppRunningEndingWith("Outlook", "olk");
-            var isDRPCRunning = RunningAppChecker.IsAppRunning("OutlookDRPC");
-
+            var          isRunning = RunningAppChecker.IsAppRunning("olk");
+            var          isDRPCRunning = RunningAppChecker.IsAppRunning("OutlookDRPC");
 
             if (isRunning && !isDRPCRunning)
             {
-                using (var process = new Process())
-                {
-                    process.StartInfo = startInfo;
-                    process.Start();
-                    process.WaitForExit();
-                }
+                Process.Start( appPath );
             }
             else if (!isRunning && isDRPCRunning)
             {
-                // Kill the process
-                var process = Process.GetProcessesByName("OutlookDRPC");
-
-                if (process.Length > 0)
-                {
-                    process[0].Kill();
-                }
+                var processName = "OutlookDRPC";
+                var processes   = Process.GetProcessesByName(processName);
+                processes[0].Kill();
             }
         }
     }

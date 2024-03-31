@@ -7,11 +7,11 @@
       "RelativeMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|solutionrelative:officedrpccommander\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|c:\\users\\mbark\\source\\repos\\officedrpc\\officedrpccommander\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\officedrpccommander\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|solutionrelative:officedrpccommander\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{378F3824-9C25-431B-9FF2-25ED1FE55D38}|OutlookDRPC\\OutlookDRPC.csproj|c:\\users\\mbark\\source\\repos\\officedrpc\\outlookdrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{378F3824-9C25-431B-9FF2-25ED1FE55D38}|OutlookDRPC\\OutlookDRPC.csproj|C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\outlookdrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{378F3824-9C25-431B-9FF2-25ED1FE55D38}|OutlookDRPC\\OutlookDRPC.csproj|solutionrelative:outlookdrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,8 +22,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -34,8 +38,7 @@
               "RelativeToolTip": "OutlookDRPC\\PresenceWorker.cs",
               "ViewState": "AQIAABcAAAAAAAAAAAAAACAAAABdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T21:00:59.37Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-31T21:00:59.37Z"
             },
             {
               "$type": "Document",
@@ -45,7 +48,7 @@
               "RelativeDocumentMoniker": "OfficeDRPCCommander\\Worker.cs",
               "ToolTip": "C:\\Users\\MBARK\\source\\repos\\OfficeDRPC\\OfficeDRPCCommander\\Worker.cs",
               "RelativeToolTip": "OfficeDRPCCommander\\Worker.cs",
-              "ViewState": "AQIAAFgBAAAAAAAAAIA0wGIBAAAUAAAA",
+              "ViewState": "AQIAAGEBAAAAAAAAAAAuwHUBAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-31T20:14:07.709Z",
               "EditorCaption": ""
@@ -60,8 +63,7 @@
               "RelativeToolTip": "OfficeDRPCCommander\\Program.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAAgwBUAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T20:13:04.234Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-31T20:13:04.234Z"
             }
           ]
         }
