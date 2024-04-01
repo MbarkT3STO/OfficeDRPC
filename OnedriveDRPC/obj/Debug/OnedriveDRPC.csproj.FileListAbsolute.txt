@@ -8,3 +8,13 @@ C:\Users\MBARK\source\repos\OfficeDRPC\OnedriveDRPC\obj\Debug\OnedriveDRPC.cspro
 C:\Users\MBARK\source\repos\OfficeDRPC\OnedriveDRPC\obj\Debug\Onedrive.C402DA38.Up2Date
 C:\Users\MBARK\source\repos\OfficeDRPC\OnedriveDRPC\obj\Debug\OnedriveDRPC.exe
 C:\Users\MBARK\source\repos\OfficeDRPC\OnedriveDRPC\obj\Debug\OnedriveDRPC.pdb
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OnedriveDRPC\bin\Debug\OnedriveDRPC.exe.config
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OnedriveDRPC\bin\Debug\OnedriveDRPC.exe
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OnedriveDRPC\bin\Debug\OnedriveDRPC.pdb
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OnedriveDRPC\bin\Debug\MBDRPC.dll
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OnedriveDRPC\bin\Debug\MBDRPC.pdb
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OnedriveDRPC\obj\Debug\OnedriveDRPC.csproj.AssemblyReference.cache
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OnedriveDRPC\obj\Debug\OnedriveDRPC.csproj.CoreCompileInputs.cache
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OnedriveDRPC\obj\Debug\Onedrive.C402DA38.Up2Date
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OnedriveDRPC\obj\Debug\OnedriveDRPC.exe
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OnedriveDRPC\obj\Debug\OnedriveDRPC.pdb

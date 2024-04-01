@@ -8,3 +8,13 @@ C:\Users\MBARK\source\repos\OfficeDRPC\PowerPointDRPC\obj\Debug\PowerPointDRPC.c
 C:\Users\MBARK\source\repos\OfficeDRPC\PowerPointDRPC\obj\Debug\PowerPoi.F35A5D28.Up2Date
 C:\Users\MBARK\source\repos\OfficeDRPC\PowerPointDRPC\obj\Debug\PowerPointDRPC.exe
 C:\Users\MBARK\source\repos\OfficeDRPC\PowerPointDRPC\obj\Debug\PowerPointDRPC.pdb
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PowerPointDRPC\bin\Debug\PowerPointDRPC.exe.config
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PowerPointDRPC\bin\Debug\PowerPointDRPC.exe
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PowerPointDRPC\bin\Debug\PowerPointDRPC.pdb
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PowerPointDRPC\bin\Debug\MBDRPC.dll
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PowerPointDRPC\bin\Debug\MBDRPC.pdb
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PowerPointDRPC\obj\Debug\PowerPointDRPC.csproj.AssemblyReference.cache
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PowerPointDRPC\obj\Debug\PowerPointDRPC.csproj.CoreCompileInputs.cache
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PowerPointDRPC\obj\Debug\PowerPoi.F35A5D28.Up2Date
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PowerPointDRPC\obj\Debug\PowerPointDRPC.exe
+C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PowerPointDRPC\obj\Debug\PowerPointDRPC.pdb
