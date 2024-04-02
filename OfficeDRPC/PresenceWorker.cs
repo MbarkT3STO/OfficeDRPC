@@ -63,9 +63,9 @@ namespace OfficeDRPC
 
 
         /// <summary>
-        /// Checks if any Microsoft Word documents are open
+        /// Checks if any Microsoft Word documents/Windows are open
         /// </summary>
-        private static bool IsAnyWordDocumentOpen()
+        private static bool IsAnyWordWindowOpen()
         {
             // Check if Microsoft Word has any open documents
             var processes = Process.GetProcessesByName( "WINWORD" )
@@ -78,12 +78,12 @@ namespace OfficeDRPC
 
 
         /// <summary>
-        /// Gets the names of all open documents in Microsoft Word
+        /// Gets the names of all open documents/windows in Microsoft Word
         /// </summary>
-        private static string[] GetWordOpenDocumentsNames()
+        private static string[] GetWordOpenWindowNames()
         {
-            // Retrieve the names of all open documents in Microsoft Word
-            var documentNames = new ConcurrentBag<string>();
+            // Retrieve the names of all open documents/windows in Microsoft Word
+            var windowNames = new ConcurrentBag<string>();
 
             var processes = Process.GetProcessesByName( "WINWORD" )
                                    .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) );
@@ -93,24 +93,24 @@ namespace OfficeDRPC
                                             // Access the process main window title and remove the " - Microsoft Word" or " - Word" suffix
                                             var mainWindowTitle = process.MainWindowTitle.Replace(" - Microsoft Word", "").Replace(" - Word", "");
 
-                                            documentNames.Add( mainWindowTitle );
+                                            windowNames.Add( mainWindowTitle );
                                         });
 
-            return documentNames.ToArray();
+            return windowNames.ToArray();
         }
 
 
         /// <summary>
-        /// Checks if the Microsoft Word home screen is active
+        /// Checks if the Microsoft Word home screen window is active
         /// </summary>
         private static bool IsHomeScreenActive()
         {
-            var documentNames = GetWordOpenDocumentsNames();
+            var openWindowNames = GetWordOpenWindowNames();
 
-            if ( documentNames.Length <= 0 ) return false;
+            if ( openWindowNames.Length <= 0 ) return false;
 
-            var documentName = documentNames[0];
-            return !(documentName.EndsWith(" - Microsoft Word") || documentName.EndsWith(" - Word"));
+            var windowName = openWindowNames[0];
+            return !(windowName.EndsWith(" - Microsoft Word") || windowName.EndsWith(" - Word"));
         }
 
 
@@ -124,13 +124,13 @@ namespace OfficeDRPC
         private void UpdateWordPresence()
         {
             //Check if any documents are open
-            if (IsAnyWordDocumentOpen())
+            if (IsAnyWordWindowOpen())
             {
-                var documentNames = GetWordOpenDocumentsNames();
-                var currentDocumentName = documentNames[0].Replace( " - Microsoft Word" , "" )
-                                                          .Replace( " - Word" , "" );
+                var openWindowNames = GetWordOpenWindowNames();
+                var windowName = openWindowNames[0].Replace( " - Microsoft Word" , "" )
+                                                   .Replace( " - Word" , "" );
 
-                wordPresence.UpdateDetails($"Editing document: {currentDocumentName}");
+                wordPresence.UpdateDetails($"Editing document: {windowName}");
             }
             else if (IsHomeScreenActive())
             {

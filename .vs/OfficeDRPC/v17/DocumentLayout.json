@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C01550B8-A89C-4D22-A50C-E25A60BB42D5}|OfficeDRPC\\OfficeDRPC.csproj|c:\\users\\mbark.azuread\\source\\repos\\mbarkt3sto\\officedrpc\\officedrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01550B8-A89C-4D22-A50C-E25A60BB42D5}|OfficeDRPC\\OfficeDRPC.csproj|solutionrelative:officedrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|c:\\users\\mbark.azuread\\source\\repos\\mbarkt3sto\\officedrpc\\officedrpccommander\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|solutionrelative:officedrpccommander\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FB692C3-E240-4F18-AEDB-948CA7823A9D}|PowerBiDRPC\\PowerBiDRPC.csproj|c:\\users\\mbark.azuread\\source\\repos\\mbarkt3sto\\officedrpc\\powerbidrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FB692C3-E240-4F18-AEDB-948CA7823A9D}|PowerBiDRPC\\PowerBiDRPC.csproj|solutionrelative:powerbidrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{835B7DBC-FB0D-4EE9-B948-0C0554221801}|ExcelDRPC\\ExcelDRPC.csproj|c:\\users\\mbark.azuread\\source\\repos\\mbarkt3sto\\officedrpc\\exceldrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{835B7DBC-FB0D-4EE9-B948-0C0554221801}|ExcelDRPC\\ExcelDRPC.csproj|solutionrelative:exceldrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D588A6E-F027-419D-9115-F9521EDF956D}|PowerPointDRPC\\PowerPointDRPC.csproj|c:\\users\\mbark.azuread\\source\\repos\\mbarkt3sto\\officedrpc\\powerpointdrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D588A6E-F027-419D-9115-F9521EDF956D}|PowerPointDRPC\\PowerPointDRPC.csproj|solutionrelative:powerpointdrpc\\presenceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,41 +34,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "PresenceWorker.cs",
-              "DocumentMoniker": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPC\\PresenceWorker.cs",
-              "RelativeDocumentMoniker": "OfficeDRPC\\PresenceWorker.cs",
-              "ToolTip": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPC\\PresenceWorker.cs",
-              "RelativeToolTip": "OfficeDRPC\\PresenceWorker.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAAA4wGUAAAAAAAAA",
+              "DocumentMoniker": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\ExcelDRPC\\PresenceWorker.cs",
+              "RelativeDocumentMoniker": "ExcelDRPC\\PresenceWorker.cs",
+              "ToolTip": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\ExcelDRPC\\PresenceWorker.cs",
+              "RelativeToolTip": "ExcelDRPC\\PresenceWorker.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T10:35:50.659Z",
+              "WhenOpened": "2024-04-02T20:46:53.857Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "PresenceWorker.cs",
-              "DocumentMoniker": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\ExcelDRPC\\PresenceWorker.cs",
-              "RelativeDocumentMoniker": "ExcelDRPC\\PresenceWorker.cs",
-              "ToolTip": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\ExcelDRPC\\PresenceWorker.cs",
-              "RelativeToolTip": "ExcelDRPC\\PresenceWorker.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAmwGMAAAAuAAAA",
+              "DocumentMoniker": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PowerBiDRPC\\PresenceWorker.cs",
+              "RelativeDocumentMoniker": "PowerBiDRPC\\PresenceWorker.cs",
+              "ToolTip": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PowerBiDRPC\\PresenceWorker.cs",
+              "RelativeToolTip": "PowerBiDRPC\\PresenceWorker.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAAACEAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T09:46:37.557Z",
+              "WhenOpened": "2024-04-02T20:47:37.152Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PresenceWorker.cs",
-              "DocumentMoniker": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PowerPointDRPC\\PresenceWorker.cs",
-              "RelativeDocumentMoniker": "PowerPointDRPC\\PresenceWorker.cs",
-              "ToolTip": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PowerPointDRPC\\PresenceWorker.cs",
-              "RelativeToolTip": "PowerPointDRPC\\PresenceWorker.cs",
-              "ViewState": "AQIAAGgAAAAAAAAAAAAYwHIAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "Worker.cs",
+              "DocumentMoniker": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Worker.cs",
+              "RelativeDocumentMoniker": "OfficeDRPCCommander\\Worker.cs",
+              "ToolTip": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Worker.cs",
+              "RelativeToolTip": "OfficeDRPCCommander\\Worker.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAqwDAAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T10:05:25.96Z",
+              "WhenOpened": "2024-04-02T21:52:59.071Z",
               "EditorCaption": ""
             }
           ]

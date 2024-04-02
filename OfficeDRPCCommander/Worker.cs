@@ -17,6 +17,7 @@ namespace OfficeDRPCCommander
         public Timer OneDriveTimer;
         public Timer PublisherTimer;
         public Timer OutlookTimer;
+        public Timer PowerBiTimer;
 
 
         public void Start()
@@ -29,6 +30,7 @@ namespace OfficeDRPCCommander
             OneDriveTimer = new Timer(_ => CheckMicrosoftOneDrive(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
             PublisherTimer = new Timer(_ => CheckMicrosoftPublisher(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
             OutlookTimer = new Timer(_ => CheckMicrosoftOutlook(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+            PowerBiTimer = new Timer(_ => CheckMicrosoftPowerBI(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
         }
 
 
@@ -327,43 +329,6 @@ namespace OfficeDRPCCommander
 
         public void CheckMicrosoftOutlook()
         {
-            ////var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\OutlookDRPC\\OutlookDRPC.exe";
-            //const string appPath = @"C:\Users\MBARK\source\repos\OfficeDRPC\OutlookDRPC\bin\Debug\OutlookDRPC.exe";
-
-            //// Create a ProcessStartInfo object and specify the filename of the application to run
-            //var startInfo = new ProcessStartInfo
-            //                {
-            //                    FileName               = appPath,
-            //                    UseShellExecute        = false,
-            //                    RedirectStandardOutput = true,
-            //                    CreateNoWindow         = true
-            //                };
-
-            //var isRunning     = RunningAppChecker.IsAppRunning("olk");
-            //var isDRPCRunning = RunningAppChecker.IsAppRunning("OutlookDRPC");
-
-
-            //if (isRunning && !isDRPCRunning)
-            //{
-            //    using (var process = new Process())
-            //    {
-            //        process.StartInfo = startInfo;
-            //        process.Start();
-            //        process.WaitForExit();
-            //    }
-            //}
-            //else if (!isRunning && isDRPCRunning)
-            //{
-            //    // Kill the process
-            //    var process = Process.GetProcessesByName("OutlookDRPC");
-
-            //    foreach ( var process1 in process )
-            //    {
-            //        process1.Kill();
-            //    }
-            //}
-
-
             //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\OutlookDRPC\bin\Debug\OutlookDRPC.exe";
             const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OutlookDRPC\bin\Debug\OutlookDRPC.exe";
             var isRunning = RunningAppChecker.IsAppRunning("olk");
@@ -394,6 +359,50 @@ namespace OfficeDRPCCommander
                 var processName = "OutlookDRPC";
                 var processes = Process.GetProcessesByName(processName);
                 processes[0].Kill();
+            }
+        }
+
+
+
+
+        public void CheckMicrosoftPowerBI()
+        {
+            //var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\PowerBiDRPC\\PowerBiDRPC.exe";
+            //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\PowerBiDRPC\bin\Debug\PowerBiDRPC.exe";
+            const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PowerBiDRPC\bin\Debug\PowerBiDRPC.exe";
+
+            // Create a ProcessStartInfo object and specify the filename of the application to run
+            var startInfo = new ProcessStartInfo
+                            {
+                                FileName               = appPath,
+                                UseShellExecute        = false,
+                                RedirectStandardOutput = true,
+                                CreateNoWindow         = true
+                            };
+
+
+            var isRunning     = RunningAppChecker.IsAppRunning("PBIDesktop");
+            var isDRPCRunning = RunningAppChecker.IsAppRunning("PowerBiDRPC");
+
+
+            if (isRunning && !isDRPCRunning)
+            {
+                using (var process = new Process())
+                {
+                    process.StartInfo = startInfo;
+                    process.Start();
+                    process.WaitForExit();
+                }
+            }
+            else if (!isRunning && isDRPCRunning)
+            {
+                // Kill the process
+                var process = Process.GetProcessesByName("PowerBiDRPC");
+
+                if (process.Length > 0)
+                {
+                    process[0].Kill();
+                }
             }
         }
     }

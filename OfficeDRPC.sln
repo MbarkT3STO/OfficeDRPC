@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublisherDRPC", "PublisherD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeDRPCCommander", "OfficeDRPCCommander\OfficeDRPCCommander.csproj", "{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerBiDRPC", "PowerBiDRPC\PowerBiDRPC.csproj", "{4FB692C3-E240-4F18-AEDB-948CA7823A9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FB692C3-E240-4F18-AEDB-948CA7823A9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FB692C3-E240-4F18-AEDB-948CA7823A9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FB692C3-E240-4F18-AEDB-948CA7823A9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FB692C3-E240-4F18-AEDB-948CA7823A9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

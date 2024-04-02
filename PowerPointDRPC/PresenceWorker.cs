@@ -67,9 +67,9 @@ namespace PowerPointDRPC
 
 
         /// <summary>
-        /// Checks if any Microsoft PowerPoint presentation is open
+        /// Checks if any Microsoft PowerPoint presentation/Window is open
         /// </summary>
-        private static bool IsAnyOpenPresentation()
+        private static bool IsAnyOpenWindow()
         {
             // Check if Microsoft PowerPoint is running
             var processes = Process.GetProcessesByName( "POWERPNT" )
@@ -100,12 +100,12 @@ namespace PowerPointDRPC
 
 
         /// <summary>
-        /// Gets the names of all open Presentations in Microsoft PowerPoint
+        /// Gets the names of all open Presentations/Windows in Microsoft PowerPoint
         /// </summary>
-        private static string[] GetPowerPointOpenPresentationNames()
+        private static string[] GetPowerPointOpenWindowNames()
         {
-            // Retrieve the names of all open presentations in Microsoft PowerPoint
-            var presentationNames = new ConcurrentBag<string>();
+            // Retrieve the names of all open presentations/windows in Microsoft PowerPoint
+            var windowsNames = new ConcurrentBag<string>();
 
             var processes = Process.GetProcessesByName( "POWERPNT" )
                                    .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) );
@@ -115,24 +115,24 @@ namespace PowerPointDRPC
                                             // Access the process main window title and remove the " - Microsoft PowerPoint" or " - PowerPoint" suffix
                                             var mainWindowTitle = process.MainWindowTitle.Replace(" - Microsoft PowerPoint", "").Replace(" - PowerPoint", "");
 
-                                            presentationNames.Add(mainWindowTitle);
+                                            windowsNames.Add(mainWindowTitle);
                                         });
 
-            return presentationNames.ToArray();
+            return windowsNames.ToArray();
         }
 
 
         /// <summary>
-        /// Checks if the Microsoft PowerPoint home screen is active
+        /// Checks if the Microsoft PowerPoint home screen window is active
         /// </summary>
         private static bool IsHomeScreenActive()
         {
-            var presentationNames = GetPowerPointOpenPresentationNames();
+            var openWindowNames = GetPowerPointOpenWindowNames();
 
-            if (presentationNames.Length <= 0) return false;
+            if (openWindowNames.Length <= 0) return false;
 
-            var currentPresentationName = presentationNames[0];
-            return !(currentPresentationName.EndsWith(" - Microsoft PowerPoint") || currentPresentationName.EndsWith(" - PowerPoint"));
+            var windowName = openWindowNames[0];
+            return !(windowName.EndsWith(" - Microsoft PowerPoint") || windowName.EndsWith(" - PowerPoint"));
         }
 
 
@@ -145,12 +145,12 @@ namespace PowerPointDRPC
         private void UpdatePresence()
         {
             //Check if any presentation is open
-            if (IsAnyOpenPresentation())
+            if (IsAnyOpenWindow())
             {
-                var presentationNames       = GetPowerPointOpenPresentationNames();
-                var currentPresentationName = presentationNames[0];
+                var openWindowNames = GetPowerPointOpenWindowNames();
+                var windowName      = openWindowNames[0];
 
-                presence.UpdateDetails($"Editing presentation: {currentPresentationName}");
+                presence.UpdateDetails($"Editing presentation: {windowName}");
             }
             else if (IsHomeScreenActive())
             {
