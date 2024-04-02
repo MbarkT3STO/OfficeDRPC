@@ -367,12 +367,27 @@ namespace OfficeDRPCCommander
             //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\OutlookDRPC\bin\Debug\OutlookDRPC.exe";
             const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OutlookDRPC\bin\Debug\OutlookDRPC.exe";
             var isRunning = RunningAppChecker.IsAppRunning("olk");
-            var isDRPCRunning = RunningAppChecker.IsAppRunning( "OutlookDRPC" );
+            var isDRPCRunning = RunningAppChecker.IsAppRunning("OutlookDRPC");
 
             if (isRunning && !isDRPCRunning)
             {
                 // Start the process with no window
-                Process.Start(appPath);
+                //Process.Start(appPath);
+
+                // Create a new process
+                using (var process = new Process())
+                {
+                    // Set the process start info
+                    process.StartInfo.FileName = appPath;
+
+                    // Set options to hide the window
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.CreateNoWindow = true;
+
+                    // Start the process
+                    process.Start();
+                }
+
             }
             else if (!isRunning && isDRPCRunning)
             {
