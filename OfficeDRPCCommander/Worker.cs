@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
 using System.Threading;
 
 using MBDRPC.Helpers;
@@ -36,9 +35,9 @@ namespace OfficeDRPCCommander
 
         private void CheckMicrosoftWord()
         {
-            //var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\WordDRPC\\OfficeDRPC.exe";
+            var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\WordDRPC\\OfficeDRPC.exe";
             //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\OfficeDRPC\bin\Debug\OfficeDRPC.exe";
-            const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OfficeDRPC\bin\Debug\OfficeDRPC.exe";
+            //const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OfficeDRPC\bin\Debug\OfficeDRPC.exe";
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo
@@ -78,9 +77,9 @@ namespace OfficeDRPCCommander
 
         private void CheckMicrosoftExcel()
         {
-            //var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\WordDRPC\\ExcelDRPC.exe";
+            var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\WordDRPC\\ExcelDRPC.exe";
             //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\ExcelDRPC\bin\Debug\ExcelDRPC.exe";
-            const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\ExcelDRPC\bin\Debug\ExcelDRPC.exe";
+            //const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\ExcelDRPC\bin\Debug\ExcelDRPC.exe";
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo
@@ -120,9 +119,9 @@ namespace OfficeDRPCCommander
 
         public void CheckMicrosoftPowerPoint()
         {
-            //var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\PowerPointDRPC\\PowerPointDRPC.exe";
+            var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\PowerPointDRPC\\PowerPointDRPC.exe";
             //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\PowerPointDRPC\bin\Debug\PowerPointDRPC.exe";
-            const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PowerPointDRPC\bin\Debug\PowerPointDRPC.exe";
+            //const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PowerPointDRPC\bin\Debug\PowerPointDRPC.exe";
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo
@@ -162,9 +161,9 @@ namespace OfficeDRPCCommander
 
         public void CheckMicrosoftAccess()
         {
-            //var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\AccessDRPC\\AccessDRPC.exe";
+            var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\AccessDRPC\\AccessDRPC.exe";
             //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\AccessDRPC\bin\Debug\AccessDRPC.exe";
-            const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\AccessDRPC\bin\Debug\AccessDRPC.exe";
+            //const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\AccessDRPC\bin\Debug\AccessDRPC.exe";
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo
@@ -204,9 +203,9 @@ namespace OfficeDRPCCommander
 
         public void CheckMicrosoftWhiteboard()
         {
-            //var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\WhiteboardDRPC\\WhiteboardDRPC.exe";
+            var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\WhiteboardDRPC\\WhiteboardDRPC.exe";
             //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\bin\Debug\WhiteboardDRPC.exe";
-            const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\bin\Debug\WhiteboardDRPC.exe";
+            //const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\bin\Debug\WhiteboardDRPC.exe";
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo
@@ -246,9 +245,9 @@ namespace OfficeDRPCCommander
 
         public void CheckMicrosoftOneDrive()
         {
-            //var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\OnedriveDRPC\\OnedriveDRPC.exe";
+            var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\OnedriveDRPC\\OnedriveDRPC.exe";
             //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\OnedriveDRPC\bin\Debug\OnedriveDRPC.exe";
-            const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OnedriveDRPC\bin\Debug\OnedriveDRPC.exe";
+            //const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OnedriveDRPC\bin\Debug\OnedriveDRPC.exe";
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo
@@ -287,9 +286,9 @@ namespace OfficeDRPCCommander
 
         public void CheckMicrosoftPublisher()
         {
-            //var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\PublisherDRPC\\PublisherDRPC.exe";
+            var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\PublisherDRPC\\PublisherDRPC.exe";
             //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\PublisherDRPC\bin\Debug\PublisherDRPC.exe";
-            const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PublisherDRPC\bin\Debug\PublisherDRPC.exe";
+            //const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PublisherDRPC\bin\Debug\PublisherDRPC.exe";
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo
@@ -329,8 +328,9 @@ namespace OfficeDRPCCommander
 
         public void CheckMicrosoftOutlook()
         {
+            const string appPath = @"C:\program files\MBVRK\OfficeDRPC\OutlookDRPC\OutlookDRPC.exe";
             //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\OutlookDRPC\bin\Debug\OutlookDRPC.exe";
-            const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OutlookDRPC\bin\Debug\OutlookDRPC.exe";
+            //const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OutlookDRPC\bin\Debug\OutlookDRPC.exe";
             var isRunning = RunningAppChecker.IsAppRunning("olk");
             var isDRPCRunning = RunningAppChecker.IsAppRunning("OutlookDRPC");
 
@@ -367,9 +367,9 @@ namespace OfficeDRPCCommander
 
         public void CheckMicrosoftPowerBI()
         {
-            //var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\PowerBiDRPC\\PowerBiDRPC.exe";
+            var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\PowerBiDRPC\\PowerBiDRPC.exe";
             //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\PowerBiDRPC\bin\Debug\PowerBiDRPC.exe";
-            const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PowerBiDRPC\bin\Debug\PowerBiDRPC.exe";
+            //const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PowerBiDRPC\bin\Debug\PowerBiDRPC.exe";
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo

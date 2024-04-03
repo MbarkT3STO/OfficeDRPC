@@ -1,10 +1,9 @@
 using System;
-using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 using MBDRPC.Core;
 using MBDRPC.Helpers;
 
@@ -69,9 +68,7 @@ namespace OfficeDRPC
         {
             // Check if Microsoft Word has any open documents
             var processes = Process.GetProcessesByName( "WINWORD" )
-                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) &&
-                                                p.MainWindowTitle != "Word"                 &&
-                                                p.MainWindowTitle != "Microsoft Word" );
+                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) );
 
             return processes.Any();
         }
@@ -83,20 +80,12 @@ namespace OfficeDRPC
         private static string[] GetWordOpenWindowNames()
         {
             // Retrieve the names of all open documents/windows in Microsoft Word
-            var windowNames = new ConcurrentBag<string>();
+            var windowNames = Process.GetProcessesByName( "WINWORD" )
+                                     .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) )
+                                     .Select( p => p.MainWindowTitle.Replace( " - Word" , "" ) )
+                                     .ToArray();
 
-            var processes = Process.GetProcessesByName( "WINWORD" )
-                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) );
-
-            Parallel.ForEach(processes, process =>
-                                        {
-                                            // Access the process main window title and remove the " - Microsoft Word" or " - Word" suffix
-                                            var mainWindowTitle = process.MainWindowTitle.Replace(" - Microsoft Word", "").Replace(" - Word", "");
-
-                                            windowNames.Add( mainWindowTitle );
-                                        });
-
-            return windowNames.ToArray();
+            return windowNames;
         }
 
 
@@ -110,11 +99,20 @@ namespace OfficeDRPC
             if ( openWindowNames.Length <= 0 ) return false;
 
             var windowName = openWindowNames[0];
-            return !(windowName.EndsWith(" - Microsoft Word") || windowName.EndsWith(" - Word"));
+            return ! ( windowName.EndsWith( " - Word" ) );
         }
 
 
+        /// <summary>
+        /// Checks if the Microsoft Word home screen window is active
+        /// </summary>
+        private static bool IsHomeScreenActive(IReadOnlyList<string> openWindowNames)
+        {
+            if (openWindowNames.Count <= 0) return false;
 
+            var windowName = openWindowNames[0];
+            return windowName.Equals( "Word" );
+        }
 
 
 
@@ -127,14 +125,17 @@ namespace OfficeDRPC
             if (IsAnyWordWindowOpen())
             {
                 var openWindowNames = GetWordOpenWindowNames();
-                var windowName = openWindowNames[0].Replace( " - Microsoft Word" , "" )
-                                                   .Replace( " - Word" , "" );
 
-                wordPresence.UpdateDetails($"Editing document: {windowName}");
-            }
-            else if (IsHomeScreenActive())
-            {
-                wordPresence.UpdateDetails("Home screen");
+                if (IsHomeScreenActive(openWindowNames))
+                {
+                    wordPresence.UpdateDetails("Home screen");
+                }
+                else
+                {
+                    var windowName = openWindowNames[0];
+
+                    wordPresence.UpdateDetails($"Editing: {windowName}");
+                }
             }
             else
             {

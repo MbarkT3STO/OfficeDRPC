@@ -1,30 +1,32 @@
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+
 using MBDRPC.Core;
 using MBDRPC.Helpers;
 
 namespace PowerBiDRPC
 {
-	public class PresenceWorker
+    public class PresenceWorker
     {
-        private string   officeAppSubscriptionType = "Mirosoft Office";
-		private Presence presence                  = new Presence();
-        private bool     isFirstRun                = true;
+        private string officeAppSubscriptionType = "Mirosoft Office";
+        private Presence presence = new Presence();
+        private bool isFirstRun = true;
         private DateTime startTime;
-        private string   processName;
-        public  Timer    Timer;
+        private string processName;
+        public Timer Timer;
 
 
         /// <summary>
         /// Starts the presence
         /// </summary>
         public void Start()
-		{
+        {
             Timer = new Timer(_ => CheckMicrosoftPowerBI(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
         }
 
@@ -36,7 +38,7 @@ namespace PowerBiDRPC
             {
                 if (isFirstRun)
                 {
-                    processName    = "PBIDesktop";
+                    processName = "PBIDesktop";
                     officeAppSubscriptionType = GetOfficeVersion();
 
                     presence.InitializePresence("1224821008234709153");
@@ -47,7 +49,7 @@ namespace PowerBiDRPC
                     presence.UpdateDetails(officeAppSubscriptionType);
 
 
-                    startTime  = RunningAppChecker.GetProcessStartTime(processName);
+                    startTime = RunningAppChecker.GetProcessStartTime(processName);
                     isFirstRun = false;
                 }
 
@@ -71,8 +73,8 @@ namespace PowerBiDRPC
         private static bool IsAnyOpenWindow()
         {
             // Check if Microsoft Power BI Report is open
-            var processes = Process.GetProcessesByName( "PBIDesktop" )
-                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ));
+            var processes = Process.GetProcessesByName("PBIDesktop")
+                                   .Where(p => !string.IsNullOrEmpty(p.MainWindowTitle));
 
             return processes.Any();
         }
@@ -84,20 +86,12 @@ namespace PowerBiDRPC
         private static string[] GetPowerBIOpenWindowNames()
         {
             // Retrieve the names of all open reports/windows in Microsoft Power BI
-            var windowNames = new ConcurrentBag<string>();
+            var windowNames = Process.GetProcessesByName("PBIDesktop")
+                                     .Where(p => !string.IsNullOrEmpty(p.MainWindowTitle))
+                                     .Select(p => p.MainWindowTitle)
+                                     .ToArray();
 
-            var processes = Process.GetProcessesByName( "PBIDesktop" )
-                                   .Where( p => !string.IsNullOrEmpty( p.MainWindowTitle ));
-
-            Parallel.ForEach( processes , process =>
-                                          {
-                                              // Access the process main window title and remove the " - Power BI" or " - Power BI Desktop" suffix
-                                              var mainWindowTitle = process.MainWindowTitle.Replace(" - Power BI Desktop", "");
-
-                                              windowNames.Add( mainWindowTitle );
-                                          } );
-
-            return windowNames.ToArray();
+            return windowNames;
         }
 
 
@@ -111,12 +105,20 @@ namespace PowerBiDRPC
             if (openWindowNames.Length <= 0) return false;
 
             var windowName = openWindowNames[0];
-            return !(windowName.EndsWith(" - Power BI") || windowName.EndsWith(" - Power BI Desktop"));
+            return (windowName.Equals("Untitled - Power BI Desktop") || windowName.Equals("Power BI Desktop"));
         }
 
 
+        /// <summary>
+        /// Checks if the Microsoft Power BI home screen window is active
+        /// </summary>
+        private static bool IsHomeScreenActive(IReadOnlyList<string> openWindowNames)
+        {
+            if (openWindowNames.Count <= 0) return false;
 
-
+            var windowName = openWindowNames[0];
+            return (windowName.Equals("Untitled - Power BI Desktop") || windowName.Equals("Power BI Desktop"));
+        }
 
 
         /// <summary>
@@ -124,17 +126,24 @@ namespace PowerBiDRPC
         /// </summary>
         private void UpdatePresence()
         {
-            //Check if any report is open
+            //Check if the home screen is active
             if (IsAnyOpenWindow())
             {
                 var openWindowNames = GetPowerBIOpenWindowNames();
-                var windowName      = openWindowNames[0];
 
-                presence.UpdateDetails($"Editing report: {windowName}");
-            }
-            else if (IsHomeScreenActive())
-            {
-                presence.UpdateDetails("Home screen");
+                if (IsHomeScreenActive(openWindowNames))
+                {
+                    presence.UpdateDetails("Home screen");
+                }
+                else
+                {
+                    var windowName = openWindowNames
+                       .FirstOrDefault( s => ! s.Equals( "Untitled - Power BI Desktop" ) &&
+                                             ! s.Equals( "Power BI Desktop" ) );
+
+                   presence.UpdateDetails( $"Editing: {windowName}" );
+                }
+
             }
             else
             {
@@ -158,10 +167,10 @@ namespace PowerBiDRPC
 
         public static string GetOfficeVersion()
         {
-            string appDataPath   = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string office365Path = Path.Combine(appDataPath, "Microsoft", "Office");
 
-            string programFilesPath    = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+            string programFilesPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
             string perpetualOfficePath = Path.Combine(programFilesPath, "Microsoft Office", "root", "Office16");
 
             if (Directory.Exists(office365Path))

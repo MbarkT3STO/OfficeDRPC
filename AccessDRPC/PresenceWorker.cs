@@ -1,11 +1,9 @@
 using System;
-using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
-
 using MBDRPC.Core;
 using MBDRPC.Helpers;
 
@@ -72,10 +70,8 @@ namespace AccessDRPC
         private static bool IsAnyOpenWindow()
         {
             // Check if Microsoft Access is running
-            var processes = Process.GetProcessesByName("MSACCESS")
-                                   .Where(p => !string.IsNullOrEmpty(p.MainWindowTitle) &&
-                                                p.MainWindowTitle != "Microsoft Access" &&
-                                                p.MainWindowTitle != "Access");
+            var processes = Process.GetProcessesByName( "MSACCESS" )
+                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) );
 
             return processes.Any();
         }
@@ -87,31 +83,29 @@ namespace AccessDRPC
         private static string[] GetAccessOpenWindowNames()
         {
             // Retrieve the names of all open databases/windows in Microsoft Access
-            var windowsNames = new ConcurrentBag<string>();
+            var windowNames = Process.GetProcessesByName("MSACCESS")
+                                     .Where(p => !string.IsNullOrEmpty(p.MainWindowTitle))
+                                     .Select(process =>
+                                              {
+                                                  var mainWindowTitle = process.MainWindowTitle;
 
-            var processes = Process.GetProcessesByName("MSACCESS")
-                                   .Where(p => !string.IsNullOrEmpty(p.MainWindowTitle) );
+                                                  if (mainWindowTitle.Contains("-") && mainWindowTitle.Contains(":"))
+                                                  {
+                                                      var startIndex =
+                                                          mainWindowTitle.IndexOf(" - ", StringComparison.Ordinal) + 2;
+                                                      var endIndex =
+                                                          mainWindowTitle.IndexOf(":", StringComparison.Ordinal);
+                                                      var length = endIndex - startIndex - 1;
 
-            Parallel.ForEach(processes, process =>
-            {
-                // Access the process main window title and get only the part between Access - and : path
-                var mainWindowTitle = process.MainWindowTitle;
+                                                      return mainWindowTitle.Substring(startIndex, length);
+                                                  }
 
-                if (mainWindowTitle.Contains("-"))
-                {
-                    var startIndex = process.MainWindowTitle.IndexOf(" - " , StringComparison.Ordinal ) + 2;
-                    var endIndex   = process.MainWindowTitle.IndexOf(":" , StringComparison.Ordinal );
-                    var length     = endIndex - startIndex - 1;
+                                                  return mainWindowTitle;
+                                              })
+                                     .ToArray();
 
-                    mainWindowTitle = process.MainWindowTitle.Substring(startIndex, length);
-                }
-
-                windowsNames.Add(mainWindowTitle);
-            });
-
-            return windowsNames.ToArray();
+            return windowNames;
         }
-
 
         /// <summary>
         /// Checks if the Microsoft Access home screen window is active
@@ -123,10 +117,20 @@ namespace AccessDRPC
             if (openWindowNames.Length <= 0) return false;
 
             var windowName = openWindowNames[0];
-            return !(windowName.EndsWith(" - Microsoft Access") || windowName.EndsWith(" - Access"));
+            return ! ( windowName.StartsWith( "Access - " ) );
         }
 
 
+        /// <summary>
+        /// Checks if the Microsoft Access home screen window is active
+        /// </summary>
+        private static bool IsHomeScreenActive(IReadOnlyList<string> openWindowNames)
+        {
+            if (openWindowNames.Count <= 0) return false;
+
+            var windowName = openWindowNames[0];
+            return windowName.Equals( "Access" );
+        }
 
 
 
@@ -140,13 +144,19 @@ namespace AccessDRPC
             if (IsAnyOpenWindow())
             {
                 var openWindowNames = GetAccessOpenWindowNames();
-                var windowName = openWindowNames[0];
 
-                presence.UpdateDetails($"Managing database: {windowName}");
-            }
-            else if (IsHomeScreenActive())
-            {
-                presence.UpdateDetails("Home screen");
+                if(IsHomeScreenActive(openWindowNames))
+                {
+                    presence.UpdateDetails("Home screen");
+                }
+                else
+                {
+                    var windowName = openWindowNames[0];
+
+                    presence.UpdateDetails($"Managing database: {windowName}");                    
+                }
+
+
             }
             else
             {

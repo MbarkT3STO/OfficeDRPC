@@ -1,10 +1,9 @@
 using System;
-using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 using MBDRPC.Core;
 using MBDRPC.Helpers;
 
@@ -72,9 +71,7 @@ namespace ExcelDRPC
         {
             // Check if Microsoft Excel workbook is open
             var processes = Process.GetProcessesByName( "EXCEL" )
-                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) &&
-                                                p.MainWindowTitle != "Excel"                &&
-                                                p.MainWindowTitle != "Microsoft Excel" );
+                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) );
 
             return processes.Any();
         }
@@ -86,20 +83,12 @@ namespace ExcelDRPC
         private static string[] GetExcelOpenWindowNames()
         {
             // Retrieve the names of all open workbooks/windows in Microsoft Excel
-            var windowNames = new ConcurrentBag<string>();
+            var windowNames = Process.GetProcessesByName( "EXCEL" )
+                                     .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) )
+                                     .Select( p => p.MainWindowTitle.Replace( " - Excel" , "" ) )
+                                     .ToArray();
 
-            var processes = Process.GetProcessesByName( "EXCEL" )
-                                   .Where( p => !string.IsNullOrEmpty( p.MainWindowTitle ));
-
-            Parallel.ForEach( processes , process =>
-                                          {
-                                              // Access the process main window title and remove the " - Microsoft Excel" or " - Excel" suffix
-                                              var mainWindowTitle = process.MainWindowTitle.Replace(" - Microsoft Excel", "").Replace(" - Excel", "");
-
-                                              windowNames.Add( mainWindowTitle );
-                                          } );
-
-            return windowNames.ToArray();
+            return windowNames;
         }
 
 
@@ -113,10 +102,19 @@ namespace ExcelDRPC
             if (openWindowNames.Length <= 0) return false;
 
             var windowName = openWindowNames[0];
-            return !(windowName.EndsWith(" - Microsoft Excel") || windowName.EndsWith(" - Excel"));
+            return !(windowName.EndsWith(" - Excel"));
         }
 
+        /// <summary>
+        /// Checks if the Microsoft Excel home screen window is active
+        /// </summary>
+        private static bool IsHomeScreenActive(IReadOnlyList<string> openWindowNames)
+        {
+            if (openWindowNames.Count <= 0) return false;
 
+            var windowName = openWindowNames[0];
+            return windowName.Equals( "Excel" );
+        }
 
 
 
@@ -130,13 +128,17 @@ namespace ExcelDRPC
             if (IsAnyOpenWindow())
             {
                 var openWindowNames = GetExcelOpenWindowNames();
-                var windowName      = openWindowNames[0];
 
-                presence.UpdateDetails($"Editing workbook: {windowName}");
-            }
-            else if (IsHomeScreenActive())
-            {
-                presence.UpdateDetails("Home screen");
+                if (IsHomeScreenActive(openWindowNames))
+                {
+                    presence.UpdateDetails("Home screen");
+                }
+                else
+                {
+                    var windowName = openWindowNames[0];
+
+                    presence.UpdateDetails($"Editing: {windowName}");
+                }
             }
             else
             {

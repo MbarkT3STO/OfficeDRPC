@@ -1,11 +1,9 @@
 using System;
-using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
-
 using MBDRPC.Core;
 using MBDRPC.Helpers;
 
@@ -73,29 +71,9 @@ namespace PowerPointDRPC
         {
             // Check if Microsoft PowerPoint is running
             var processes = Process.GetProcessesByName( "POWERPNT" )
-                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) &&
-                                                p.MainWindowTitle != "PowerPoint"           &&
-                                                p.MainWindowTitle != "Microsoft PowerPoint" );
+                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) );
 
             return processes.Any();
-
-
-            //// Check if Microsoft Word has any open documents
-            //var processes = Process.GetProcessesByName("POWERPNT").Where(p => !string.IsNullOrEmpty(p.MainWindowTitle));
-
-            //foreach (var process in processes)
-            //{
-            //    // Access the process main window title
-            //    var mainWindowTitle = process.MainWindowTitle;
-
-            //    // If a document is open, the main window title should not be empty
-            //    if (!(mainWindowTitle == "PowerPoint" || mainWindowTitle == "Microsoft PowerPoint"))
-            //    {
-            //        return true;
-            //    }
-            //}
-
-            //return false;
         }
 
 
@@ -105,20 +83,12 @@ namespace PowerPointDRPC
         private static string[] GetPowerPointOpenWindowNames()
         {
             // Retrieve the names of all open presentations/windows in Microsoft PowerPoint
-            var windowsNames = new ConcurrentBag<string>();
+            var windowNames = Process.GetProcessesByName("POWERPNT")
+                                     .Where(p => !string.IsNullOrEmpty(p.MainWindowTitle))
+                                     .Select(p => p.MainWindowTitle.Replace(" - PowerPoint", ""))
+                                     .ToArray();
 
-            var processes = Process.GetProcessesByName( "POWERPNT" )
-                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) );
-
-            Parallel.ForEach(processes, process =>
-                                        {
-                                            // Access the process main window title and remove the " - Microsoft PowerPoint" or " - PowerPoint" suffix
-                                            var mainWindowTitle = process.MainWindowTitle.Replace(" - Microsoft PowerPoint", "").Replace(" - PowerPoint", "");
-
-                                            windowsNames.Add(mainWindowTitle);
-                                        });
-
-            return windowsNames.ToArray();
+            return windowNames;
         }
 
 
@@ -132,7 +102,19 @@ namespace PowerPointDRPC
             if (openWindowNames.Length <= 0) return false;
 
             var windowName = openWindowNames[0];
-            return !(windowName.EndsWith(" - Microsoft PowerPoint") || windowName.EndsWith(" - PowerPoint"));
+            return ! ( windowName.EndsWith( " - PowerPoint" ) );
+        }
+
+
+        /// <summary>
+        /// Checks if the Microsoft PowerPoint home screen window is active
+        /// </summary>
+        private static bool IsHomeScreenActive(IReadOnlyList<string> openWindowNames)
+        {
+            if (openWindowNames.Count <= 0) return false;
+
+            var windowName = openWindowNames[0];
+            return windowName.Equals("PowerPoint");
         }
 
 
@@ -148,13 +130,17 @@ namespace PowerPointDRPC
             if (IsAnyOpenWindow())
             {
                 var openWindowNames = GetPowerPointOpenWindowNames();
-                var windowName      = openWindowNames[0];
 
-                presence.UpdateDetails($"Editing presentation: {windowName}");
-            }
-            else if (IsHomeScreenActive())
-            {
-                presence.UpdateDetails("Home screen");
+                if (IsHomeScreenActive(openWindowNames))
+                {
+                    presence.UpdateDetails("Home screen");
+                }
+                else
+                {
+                    var windowName = openWindowNames[0];
+
+                    presence.UpdateDetails($"Editing: {windowName}");
+                }
             }
             else
             {

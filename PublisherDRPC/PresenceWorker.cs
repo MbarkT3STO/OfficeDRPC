@@ -1,11 +1,9 @@
 using System;
-using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
-
 using MBDRPC.Core;
 using MBDRPC.Helpers;
 
@@ -74,9 +72,7 @@ namespace PublisherDRPC
         {
             // Check if Microsoft Publisher is running
             var processes = Process.GetProcessesByName( "MSPUB" )
-                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) &&
-                                                p.MainWindowTitle != "Microsoft Publisher"  &&
-                                                p.MainWindowTitle != "Publisher" );
+                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) );
 
             return processes.Any();
         }
@@ -88,20 +84,12 @@ namespace PublisherDRPC
         private static string[] GetPublisherOpenWindowNames()
         {
             // Retrieve the names of all open compositions/windows in Microsoft Publisher
-            var windowsNames = new ConcurrentBag<string>();
+            var windowNames = Process.GetProcessesByName( "MSPUB" )
+                                     .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) )
+                                     .Select( p => p.MainWindowTitle.Replace( " - Publisher" , "" ) )
+                                     .ToArray();
 
-            var processes = Process.GetProcessesByName( "MSPUB" )
-                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) );
-
-            Parallel.ForEach(processes, process =>
-            {
-                // Access the process main window title and remove the " - Microsoft Publisher" or " - Publisher" suffix
-                var mainWindowTitle = process.MainWindowTitle.Replace(" - Microsoft Publisher", "").Replace(" - Publisher", "");
-
-                windowsNames.Add(mainWindowTitle);
-            });
-
-            return windowsNames.ToArray();
+            return windowNames;
         }
 
 
@@ -115,9 +103,19 @@ namespace PublisherDRPC
             if (openWindowNames.Length <= 0) return false;
 
             var windowName = openWindowNames[0];
-            return !(windowName.EndsWith(" - Microsoft Publisher") || windowName.EndsWith(" - Publisher"));
+            return ! ( windowName.EndsWith( " - Publisher" ) );
         }
 
+        /// <summary>
+        /// Checks if the Microsoft Publisher home screen window is active
+        /// </summary>
+        private static bool IsHomeScreenActive(IReadOnlyList<string> openWindowNames)
+        {
+            if (openWindowNames.Count <= 0) return false;
+
+            var windowName = openWindowNames[0];
+            return windowName.Equals( "Publisher" );
+        }
 
 
 
@@ -131,13 +129,17 @@ namespace PublisherDRPC
             if (IsAnyOpenWindow())
             {
                 var openWindowNames = GetPublisherOpenWindowNames();
-                var windowName      = openWindowNames[0];
 
-                presence.UpdateDetails($"Editing composition: {windowName}");
-            }
-            else if (IsHomeScreenActive())
-            {
-                presence.UpdateDetails("Home screen");
+                if (IsHomeScreenActive(openWindowNames))
+                {
+                    presence.UpdateDetails("Home screen");
+                }
+                else
+                {
+                    var windowName = openWindowNames[0];
+
+                    presence.UpdateDetails($"Editing: {windowName}");
+                }
             }
             else
             {
