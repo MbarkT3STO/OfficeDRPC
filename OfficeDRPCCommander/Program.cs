@@ -19,19 +19,23 @@ namespace OfficeDRPCCommander
                 FreeConsole();
 
                 // Register the app to be auto startup
-                using (var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+                //using (var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+                //{
+                //    key?.SetValue("MBVRK.OfficeDRPC", System.Reflection.Assembly.GetExecutingAssembly().Location);
+                //}
+
+                // Remove the app from auto startup
+                using ( var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey( "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" , true ) )
                 {
-                    key?.SetValue("MBVRK.OfficeDRPC", System.Reflection.Assembly.GetExecutingAssembly().Location);
+                    key.DeleteValue( "MBVRK.OfficeDRPC" );
                 }
 
 
                 worker.Start();
 
                 // Keep the app running
-                Thread.Sleep(Timeout.Infinite);
-            }
-            catch (Exception)
-            {
+                Thread.Sleep(Timeout.InfiniteTimeSpan);
+
                 worker.WordTimer.Dispose();
                 worker.ExcelTimer.Dispose();
                 worker.PowerPointTimer.Dispose();
@@ -40,6 +44,20 @@ namespace OfficeDRPCCommander
                 worker.OneDriveTimer.Dispose();
                 worker.PublisherTimer.Dispose();
                 worker.OutlookTimer.Dispose();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine(ex.Message);
+                //Console.ReadKey();
+
+                //worker.WordTimer.Dispose();
+                //worker.ExcelTimer.Dispose();
+                //worker.PowerPointTimer.Dispose();
+                //worker.AccessTimer.Dispose();
+                //worker.WhiteboardTimer.Dispose();
+                //worker.OneDriveTimer.Dispose();
+                //worker.PublisherTimer.Dispose();
+                //worker.OutlookTimer.Dispose();
 
                 Environment.Exit(0);
             }
@@ -55,7 +73,7 @@ namespace OfficeDRPCCommander
             //worker.PublisherTimer.Dispose();
             //worker.OutlookTimer.Dispose();
 
-            //Environment.Exit(0);
+            Environment.Exit(0);
         }
     }
 }

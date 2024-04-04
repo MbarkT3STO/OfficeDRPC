@@ -35,18 +35,20 @@ namespace OfficeDRPCCommander
 
         private void CheckMicrosoftWord()
         {
-            var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\WordDRPC\\OfficeDRPC.exe";
+            var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\OfficeDRPC\\OfficeDRPC.exe";
             //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\OfficeDRPC\bin\Debug\OfficeDRPC.exe";
             //const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OfficeDRPC\bin\Debug\OfficeDRPC.exe";
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo
-            {
-                FileName = appPath,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                CreateNoWindow = true
-            };
+                            {
+                                FileName               = appPath ,
+                                UseShellExecute        = false ,
+                                RedirectStandardOutput = true ,
+                                RedirectStandardError  = true ,
+                                CreateNoWindow         = true ,
+                                Verb                   = string.Empty
+                            };
 
 
             var isRunning = RunningAppChecker.IsAppRunning("winword");
@@ -70,6 +72,8 @@ namespace OfficeDRPCCommander
                 if (process.Length > 0)
                 {
                     process[0].Kill();
+                    process[0].Close();
+                    process[0].Dispose();
                 }
             }
         }
@@ -77,18 +81,20 @@ namespace OfficeDRPCCommander
 
         private void CheckMicrosoftExcel()
         {
-            var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\WordDRPC\\ExcelDRPC.exe";
+            var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\ExcelDRPC\\ExcelDRPC.exe";
             //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\ExcelDRPC\bin\Debug\ExcelDRPC.exe";
             //const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\ExcelDRPC\bin\Debug\ExcelDRPC.exe";
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo
-            {
-                FileName = appPath,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                CreateNoWindow = true
-            };
+                            {
+                                FileName               = appPath,
+                                UseShellExecute        = false,
+                                RedirectStandardOutput = true,
+                                RedirectStandardError  = true,
+                                CreateNoWindow         = true,
+                                Verb                   = string.Empty
+                            };
 
 
             var isRunning = RunningAppChecker.IsAppRunning("excel");
@@ -112,6 +118,8 @@ namespace OfficeDRPCCommander
                 if (process.Length > 0)
                 {
                     process[0].Kill();
+                    process[0].Close();
+                    process[0].Dispose();
                 }
             }
         }
@@ -125,12 +133,14 @@ namespace OfficeDRPCCommander
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo
-            {
-                FileName = appPath,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                CreateNoWindow = true
-            };
+                            {
+                                FileName               = appPath,
+                                UseShellExecute        = false,
+                                RedirectStandardOutput = true,
+                                RedirectStandardError  = true,
+                                CreateNoWindow         = true,
+                                Verb                   = string.Empty
+                            };
 
 
             var isRunning = RunningAppChecker.IsAppRunning("powerpnt");
@@ -154,6 +164,8 @@ namespace OfficeDRPCCommander
                 if (process.Length > 0)
                 {
                     process[0].Kill();
+                    process[0].Close();
+                    process[0].Dispose();
                 }
             }
         }
@@ -167,12 +179,14 @@ namespace OfficeDRPCCommander
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo
-            {
-                FileName = appPath,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                CreateNoWindow = true
-            };
+                            {
+                                FileName               = appPath,
+                                UseShellExecute        = false,
+                                RedirectStandardOutput = true,
+                                RedirectStandardError  = true,
+                                CreateNoWindow         = true,
+                                Verb                   = string.Empty
+                            };
 
 
             var isRunning = RunningAppChecker.IsAppRunning("msaccess");
@@ -196,6 +210,8 @@ namespace OfficeDRPCCommander
                 if (process.Length > 0)
                 {
                     process[0].Kill();
+                    process[0].Close();
+                    process[0].Dispose();
                 }
             }
         }
@@ -209,12 +225,14 @@ namespace OfficeDRPCCommander
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo
-            {
-                FileName = appPath,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                CreateNoWindow = true
-            };
+                            {
+                                FileName               = appPath,
+                                UseShellExecute        = false,
+                                RedirectStandardOutput = true,
+                                RedirectStandardError  = true,
+                                CreateNoWindow         = true,
+                                Verb                   = string.Empty
+                            };
 
 
             var isRunning = RunningAppChecker.IsAppRunning("MicrosoftWhiteboard");
@@ -238,6 +256,8 @@ namespace OfficeDRPCCommander
                 if (process.Length > 0)
                 {
                     process[0].Kill();
+                    process[0].Close();
+                    process[0].Dispose();
                 }
             }
         }
@@ -251,12 +271,14 @@ namespace OfficeDRPCCommander
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo
-            {
-                FileName = appPath,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                CreateNoWindow = true
-            };
+                            {
+                                FileName               = appPath,
+                                UseShellExecute        = false,
+                                RedirectStandardOutput = true,
+                                RedirectStandardError  = true,
+                                CreateNoWindow         = true,
+                                Verb                   = string.Empty
+                            };
 
             var isRunning = RunningAppChecker.IsAppRunning("onedrive");
             var isDRPCRunning = RunningAppChecker.IsAppRunning("OnedriveDRPC");
@@ -279,6 +301,8 @@ namespace OfficeDRPCCommander
                 if (process.Length > 0)
                 {
                     process[0].Kill();
+                    process[0].Close();
+                    process[0].Dispose();
                 }
             }
         }
@@ -292,12 +316,14 @@ namespace OfficeDRPCCommander
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo
-            {
-                FileName = appPath,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                CreateNoWindow = true
-            };
+                            {
+                                FileName               = appPath,
+                                UseShellExecute        = false,
+                                RedirectStandardOutput = true,
+                                RedirectStandardError  = true,
+                                CreateNoWindow         = true,
+                                Verb                   = string.Empty
+                            };
 
 
             var isRunning = RunningAppChecker.IsAppRunning("mspub");
@@ -321,6 +347,8 @@ namespace OfficeDRPCCommander
                 if (process.Length > 0)
                 {
                     process[0].Kill();
+                    process[0].Close();
+                    process[0].Dispose();
                 }
             }
         }
@@ -346,8 +374,11 @@ namespace OfficeDRPCCommander
                     process.StartInfo.FileName = appPath;
 
                     // Set options to hide the window
-                    process.StartInfo.UseShellExecute = false;
-                    process.StartInfo.CreateNoWindow = true;
+                    process.StartInfo.UseShellExecute        = false;
+                    process.StartInfo.CreateNoWindow         = true;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.RedirectStandardError  = true;
+                    process.StartInfo.Verb                   = string.Empty;
 
                     // Start the process
                     process.Start();
@@ -359,10 +390,10 @@ namespace OfficeDRPCCommander
                 var processName = "OutlookDRPC";
                 var processes = Process.GetProcessesByName(processName);
                 processes[0].Kill();
+                processes[0].Close();
+                processes[0].Dispose();
             }
         }
-
-
 
 
         public void CheckMicrosoftPowerBI()
@@ -377,7 +408,9 @@ namespace OfficeDRPCCommander
                                 FileName               = appPath,
                                 UseShellExecute        = false,
                                 RedirectStandardOutput = true,
-                                CreateNoWindow         = true
+                                RedirectStandardError  = true,
+                                CreateNoWindow         = true,
+                                Verb                   = string.Empty
                             };
 
 
@@ -402,6 +435,8 @@ namespace OfficeDRPCCommander
                 if (process.Length > 0)
                 {
                     process[0].Kill();
+                    process[0].Close();
+                    process[0].Dispose();
                 }
             }
         }
