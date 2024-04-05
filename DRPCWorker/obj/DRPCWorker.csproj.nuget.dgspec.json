@@ -1,0 +1,301 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\DRPCWorker\\DRPCWorker.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj",
+        "projectName": "MBDRPC",
+        "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\AccessDRPC\\AccessDRPC.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\AccessDRPC\\AccessDRPC.csproj",
+        "projectName": "AccessDRPC",
+        "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\AccessDRPC\\AccessDRPC.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\DRPCWorker\\DRPCWorker.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\DRPCWorker\\DRPCWorker.csproj",
+        "projectName": "DRPCWorker",
+        "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\DRPCWorker\\DRPCWorker.csproj",
+        "packagesPath": "C:\\Users\\MBARK.AzureAD\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\DRPCWorker\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\MBARK.AzureAD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows10.0.17763.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows10.0.17763": {
+            "targetAlias": "net8.0-windows10.0.17763.0",
+            "projectReferences": {
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\AccessDRPC\\AccessDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\AccessDRPC\\AccessDRPC.csproj"
+              },
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\ExcelDRPC\\ExcelDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\ExcelDRPC\\ExcelDRPC.csproj"
+              },
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPC\\OfficeDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPC\\OfficeDRPC.csproj"
+              },
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OnedriveDRPC\\OnedriveDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OnedriveDRPC\\OnedriveDRPC.csproj"
+              },
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OutlookDRPC\\OutlookDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OutlookDRPC\\OutlookDRPC.csproj"
+              },
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PowerBiDRPC\\PowerBiDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PowerBiDRPC\\PowerBiDRPC.csproj"
+              },
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PowerPointDRPC\\PowerPointDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PowerPointDRPC\\PowerPointDRPC.csproj"
+              },
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PublisherDRPC\\PublisherDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PublisherDRPC\\PublisherDRPC.csproj"
+              },
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\WhiteboardDRPC\\WhiteboardDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\WhiteboardDRPC\\WhiteboardDRPC.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows10.0.17763": {
+          "targetAlias": "net8.0-windows10.0.17763.0",
+          "dependencies": {
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "System.Diagnostics.Process": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Windows.SDK.NET.Ref",
+              "version": "[10.0.17763.31, 10.0.17763.31]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.Windows.SDK.NET.Ref": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\ExcelDRPC\\ExcelDRPC.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\ExcelDRPC\\ExcelDRPC.csproj",
+        "projectName": "ExcelDRPC",
+        "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\ExcelDRPC\\ExcelDRPC.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPC\\OfficeDRPC.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPC\\OfficeDRPC.csproj",
+        "projectName": "OfficeDRPC",
+        "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPC\\OfficeDRPC.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OnedriveDRPC\\OnedriveDRPC.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OnedriveDRPC\\OnedriveDRPC.csproj",
+        "projectName": "OnedriveDRPC",
+        "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OnedriveDRPC\\OnedriveDRPC.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OutlookDRPC\\OutlookDRPC.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OutlookDRPC\\OutlookDRPC.csproj",
+        "projectName": "OutlookDRPC",
+        "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OutlookDRPC\\OutlookDRPC.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PowerBiDRPC\\PowerBiDRPC.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PowerBiDRPC\\PowerBiDRPC.csproj",
+        "projectName": "PowerBiDRPC",
+        "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PowerBiDRPC\\PowerBiDRPC.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PowerPointDRPC\\PowerPointDRPC.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PowerPointDRPC\\PowerPointDRPC.csproj",
+        "projectName": "PowerPointDRPC",
+        "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PowerPointDRPC\\PowerPointDRPC.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PublisherDRPC\\PublisherDRPC.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PublisherDRPC\\PublisherDRPC.csproj",
+        "projectName": "PublisherDRPC",
+        "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\PublisherDRPC\\PublisherDRPC.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\WhiteboardDRPC\\WhiteboardDRPC.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\WhiteboardDRPC\\WhiteboardDRPC.csproj",
+        "projectName": "WhiteboardDRPC",
+        "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\WhiteboardDRPC\\WhiteboardDRPC.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj": {
+                "projectPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\MBDRPC\\MBDRPC\\MBDRPC.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    }
+  }
+}

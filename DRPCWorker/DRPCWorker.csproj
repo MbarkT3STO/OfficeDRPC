@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows10.0.17763.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-DRPCWorker-205e0da0-89f0-4d82-a490-e0872b64c101</UserSecretsId>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccessDRPC\AccessDRPC.csproj" />
+    <ProjectReference Include="..\ExcelDRPC\ExcelDRPC.csproj" />
+    <ProjectReference Include="..\OfficeDRPC\OfficeDRPC.csproj" />
+    <ProjectReference Include="..\OnedriveDRPC\OnedriveDRPC.csproj" />
+    <ProjectReference Include="..\OutlookDRPC\OutlookDRPC.csproj" />
+    <ProjectReference Include="..\PowerBiDRPC\PowerBiDRPC.csproj" />
+    <ProjectReference Include="..\PowerPointDRPC\PowerPointDRPC.csproj" />
+    <ProjectReference Include="..\PublisherDRPC\PublisherDRPC.csproj" />
+    <ProjectReference Include="..\WhiteboardDRPC\WhiteboardDRPC.csproj" />
+  </ItemGroup>
+</Project>

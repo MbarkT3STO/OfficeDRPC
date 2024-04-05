@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
-
+using System.Threading.Tasks;
 using MBDRPC.Helpers;
 
 namespace OfficeDRPCCommander
@@ -21,23 +21,21 @@ namespace OfficeDRPCCommander
 
         public void Start()
         {
-            WordTimer = new Timer(_ => CheckMicrosoftWord(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
-            ExcelTimer = new Timer(_ => CheckMicrosoftExcel(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
-            PowerPointTimer = new Timer(_ => CheckMicrosoftPowerPoint(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
-            AccessTimer = new Timer(_ => CheckMicrosoftAccess(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
-            WhiteboardTimer = new Timer(_ => CheckMicrosoftWhiteboard(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
-            OneDriveTimer = new Timer(_ => CheckMicrosoftOneDrive(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
-            PublisherTimer = new Timer(_ => CheckMicrosoftPublisher(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
-            OutlookTimer = new Timer(_ => CheckMicrosoftOutlook(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
-            PowerBiTimer = new Timer(_ => CheckMicrosoftPowerBI(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+            WordTimer = new Timer( _ => CheckMicrosoftWord(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+            ExcelTimer = new Timer( _ => CheckMicrosoftExcel(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+            //PowerPointTimer = new Timer(_ => CheckMicrosoftPowerPoint(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+            //AccessTimer = new Timer(_ => CheckMicrosoftAccess(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+            //WhiteboardTimer = new Timer(_ => CheckMicrosoftWhiteboard(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+            //OneDriveTimer = new Timer(_ => CheckMicrosoftOneDrive(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+            //PublisherTimer = new Timer(_ => CheckMicrosoftPublisher(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+            //OutlookTimer = new Timer(_ => CheckMicrosoftOutlook(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+            //PowerBiTimer = new Timer(_ => CheckMicrosoftPowerBI(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
         }
 
 
         private void CheckMicrosoftWord()
         {
-            var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\OfficeDRPC\\OfficeDRPC.exe";
-            //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\OfficeDRPC\bin\Debug\OfficeDRPC.exe";
-            //const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\OfficeDRPC\bin\Debug\OfficeDRPC.exe";
+            var appPath = "OfficeDRPC.exe";
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo
@@ -61,29 +59,25 @@ namespace OfficeDRPCCommander
                 {
                     process.StartInfo = startInfo;
                     process.Start();
-                    process.WaitForExit();
                 }
             }
-            else if (!isRunning && isDRPCRunning)
-            {
-                // Kill the process
-                var process = Process.GetProcessesByName("OfficeDRPC");
+            //else if (!isRunning && isDRPCRunning)
+            //{
+            //    // Kill the process
+            //    // Kill the process
+            //    var process = Process.GetProcessesByName("OfficeDRPC");
 
-                if (process.Length > 0)
-                {
-                    process[0].Kill();
-                    process[0].Close();
-                    process[0].Dispose();
-                }
-            }
+            //    if (process.Length > 0 && !process[0].HasExited)
+            //    {
+            //        process[0].Kill(); ;
+            //    }
+            //}
         }
 
 
         private void CheckMicrosoftExcel()
         {
-            var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\ExcelDRPC\\ExcelDRPC.exe";
-            //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\ExcelDRPC\bin\Debug\ExcelDRPC.exe";
-            //const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\ExcelDRPC\bin\Debug\ExcelDRPC.exe";
+            var appPath = "ExcelDRPC.exe";
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo
@@ -110,26 +104,24 @@ namespace OfficeDRPCCommander
                     process.WaitForExit();
                 }
             }
-            else if (!isRunning && isDRPCRunning)
-            {
-                // Kill the process
-                var process = Process.GetProcessesByName("ExcelDRPC");
+            //else if (!isRunning && isDRPCRunning)
+            //{
+            //    // Kill the process
+            //    var process = Process.GetProcessesByName("ExcelDRPC");
 
-                if (process.Length > 0)
-                {
-                    process[0].Kill();
-                    process[0].Close();
-                    process[0].Dispose();
-                }
-            }
+            //    if (process.Length > 0)
+            //    {
+            //        process[0].Kill();
+            //        process[0].Close();
+            //        process[0].Dispose();
+            //    }
+            //}
         }
 
 
         public void CheckMicrosoftPowerPoint()
         {
             var appPath = "C:\\program files\\MBVRK\\OfficeDRPC\\PowerPointDRPC\\PowerPointDRPC.exe";
-            //const string appPath = @"C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\PowerPointDRPC\bin\Debug\PowerPointDRPC.exe";
-            //const string appPath = @"C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\PowerPointDRPC\bin\Debug\PowerPointDRPC.exe";
 
             // Create a ProcessStartInfo object and specify the filename of the application to run
             var startInfo = new ProcessStartInfo

@@ -35,8 +35,9 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -61,6 +62,42 @@
     <ProjectReference Include="..\..\MBDRPC\MBDRPC\MBDRPC.csproj">
       <Project>{709bdb14-d8ff-4c31-b55c-52a73bef4d62}</Project>
       <Name>MBDRPC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AccessDRPC\AccessDRPC.csproj">
+      <Project>{0f7f456e-f4ec-4f5d-8ddd-75ec7bc4eb0f}</Project>
+      <Name>AccessDRPC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExcelDRPC\ExcelDRPC.csproj">
+      <Project>{835b7dbc-fb0d-4ee9-b948-0c0554221801}</Project>
+      <Name>ExcelDRPC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OfficeDRPC\OfficeDRPC.csproj">
+      <Project>{c01550b8-a89c-4d22-a50c-e25a60bb42d5}</Project>
+      <Name>OfficeDRPC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnedriveDRPC\OnedriveDRPC.csproj">
+      <Project>{3b4a0d62-f6ff-4bec-bac0-40c26c422fc5}</Project>
+      <Name>OnedriveDRPC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OutlookDRPC\OutlookDRPC.csproj">
+      <Project>{378f3824-9c25-431b-9ff2-25ed1fe55d38}</Project>
+      <Name>OutlookDRPC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PowerBiDRPC\PowerBiDRPC.csproj">
+      <Project>{4fb692c3-e240-4f18-aedb-948ca7823a9d}</Project>
+      <Name>PowerBiDRPC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PowerPointDRPC\PowerPointDRPC.csproj">
+      <Project>{3d588a6e-f027-419d-9115-f9521edf956d}</Project>
+      <Name>PowerPointDRPC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PublisherDRPC\PublisherDRPC.csproj">
+      <Project>{650a2f91-989b-45b9-9180-cf9e57d26f31}</Project>
+      <Name>PublisherDRPC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WhiteboardDRPC\WhiteboardDRPC.csproj">
+      <Project>{85092fac-4652-4412-8e39-f0798fe1a52c}</Project>
+      <Name>WhiteboardDRPC</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

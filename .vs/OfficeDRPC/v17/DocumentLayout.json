@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|c:\\users\\mbark.azuread\\source\\repos\\mbarkt3sto\\officedrpc\\officedrpccommander\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|solutionrelative:officedrpccommander\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0BC55D0-6A1E-4F58-9224-7A1D70F934F0}|DRPCWorker\\DRPCWorker.csproj|c:\\users\\mbark.azuread\\source\\repos\\mbarkt3sto\\officedrpc\\drpcworker\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0BC55D0-6A1E-4F58-9224-7A1D70F934F0}|DRPCWorker\\DRPCWorker.csproj|solutionrelative:drpcworker\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\officedrpccommander\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|solutionrelative:officedrpccommander\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\officedrpccommander\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|solutionrelative:officedrpccommander\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|c:\\users\\mbark.azuread\\source\\repos\\mbarkt3sto\\officedrpc\\officedrpccommander\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|solutionrelative:officedrpccommander\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{A0BC55D0-6A1E-4F58-9224-7A1D70F934F0}|DRPCWorker\\DRPCWorker.csproj|c:\\users\\mbark.azuread\\source\\repos\\mbarkt3sto\\officedrpc\\drpcworker\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0BC55D0-6A1E-4F58-9224-7A1D70F934F0}|DRPCWorker\\DRPCWorker.csproj|solutionrelative:drpcworker\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,41 +38,53 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Program.cs",
-              "RelativeDocumentMoniker": "OfficeDRPCCommander\\Program.cs",
-              "ToolTip": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Program.cs",
-              "RelativeToolTip": "OfficeDRPCCommander\\Program.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAqwEsAAAAgAAAA",
+              "DocumentMoniker": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\DRPCWorker\\Program.cs",
+              "RelativeDocumentMoniker": "DRPCWorker\\Program.cs",
+              "ToolTip": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\DRPCWorker\\Program.cs",
+              "RelativeToolTip": "DRPCWorker\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T10:56:56.524Z",
+              "WhenOpened": "2024-04-04T20:37:37.972Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Worker.cs",
-              "DocumentMoniker": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Worker.cs",
-              "RelativeDocumentMoniker": "OfficeDRPCCommander\\Worker.cs",
-              "ToolTip": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Worker.cs",
-              "RelativeToolTip": "OfficeDRPCCommander\\Worker.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAAD4AAAAkAAAA",
+              "DocumentMoniker": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\DRPCWorker\\Worker.cs",
+              "RelativeDocumentMoniker": "DRPCWorker\\Worker.cs",
+              "ToolTip": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\DRPCWorker\\Worker.cs",
+              "RelativeToolTip": "DRPCWorker\\Worker.cs",
+              "ViewState": "AQIAAFgAAAAAAAAAAAAwwGAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T10:35:19.714Z",
+              "WhenOpened": "2024-04-04T17:04:56.877Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "app.manifest",
-              "DocumentMoniker": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\app.manifest",
-              "RelativeDocumentMoniker": "OfficeDRPCCommander\\app.manifest",
-              "ToolTip": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\app.manifest",
-              "RelativeToolTip": "OfficeDRPCCommander\\app.manifest",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001203|",
-              "WhenOpened": "2024-04-04T08:01:13.531Z",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Program.cs",
+              "RelativeDocumentMoniker": "OfficeDRPCCommander\\Program.cs",
+              "ToolTip": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Program.cs",
+              "RelativeToolTip": "OfficeDRPCCommander\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T20:37:46.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Worker.cs",
+              "DocumentMoniker": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Worker.cs",
+              "RelativeDocumentMoniker": "OfficeDRPCCommander\\Worker.cs",
+              "ToolTip": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Worker.cs",
+              "RelativeToolTip": "OfficeDRPCCommander\\Worker.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAwwDcAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-05T07:28:35.81Z",
               "EditorCaption": ""
             }
           ]

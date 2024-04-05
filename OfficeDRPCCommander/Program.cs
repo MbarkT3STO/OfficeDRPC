@@ -25,25 +25,25 @@ namespace OfficeDRPCCommander
                 //}
 
                 // Remove the app from auto startup
-                using ( var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey( "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" , true ) )
-                {
-                    key.DeleteValue( "MBVRK.OfficeDRPC" );
-                }
+                //using ( var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey( "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" , true ) )
+                //{
+                //    key.DeleteValue( "MBVRK.OfficeDRPC" );
+                //}
 
 
                 worker.Start();
 
                 // Keep the app running
-                Thread.Sleep(Timeout.InfiniteTimeSpan);
+                Thread.Sleep(Timeout.Infinite);
 
-                worker.WordTimer.Dispose();
-                worker.ExcelTimer.Dispose();
-                worker.PowerPointTimer.Dispose();
-                worker.AccessTimer.Dispose();
-                worker.WhiteboardTimer.Dispose();
-                worker.OneDriveTimer.Dispose();
-                worker.PublisherTimer.Dispose();
-                worker.OutlookTimer.Dispose();
+                //worker.WordTimer.Dispose();
+                //worker.ExcelTimer.Dispose();
+                //worker.PowerPointTimer.Dispose();
+                //worker.AccessTimer.Dispose();
+                //worker.WhiteboardTimer.Dispose();
+                //worker.OneDriveTimer.Dispose();
+                //worker.PublisherTimer.Dispose();
+                //worker.OutlookTimer.Dispose();
             }
             catch (Exception ex)
             {
