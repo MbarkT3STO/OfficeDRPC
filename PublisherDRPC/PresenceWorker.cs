@@ -4,7 +4,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using MBDRPC.Core;
+
+using PublisherDRPC.Core;
+
 using MBDRPC.Helpers;
 
 namespace PublisherDRPC
@@ -136,9 +138,12 @@ namespace PublisherDRPC
                 }
                 else
                 {
-                    var windowName = openWindowNames[0];
+                    if (openWindowNames.Length > 0)
+                    {
+                        var windowName = openWindowNames[0];
 
-                    presence.UpdateDetails($"Editing: {windowName}");
+                        presence.UpdateDetails($"Editing: {windowName}");
+                    }
                 }
             }
             else

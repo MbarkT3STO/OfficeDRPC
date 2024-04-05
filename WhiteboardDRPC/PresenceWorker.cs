@@ -1,7 +1,9 @@
 using System;
 using System.IO;
 using System.Threading;
-using MBDRPC.Core;
+
+using WhiteboardDRPC.Core;
+
 using MBDRPC.Helpers;
 
 namespace WhiteboardDRPC

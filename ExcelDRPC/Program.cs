@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,12 +9,18 @@ namespace ExcelDRPC
 {
     internal class Program
     {
+        [DllImport( "kernel32.dll")]
+        public static extern bool FreeConsole();
+
         static void Main(string[] args)
         {
             // Hide the console window
             //var handle = GetConsoleWindow();
             //// To hide:
             //ShowWindow(handle, SW_HIDE);
+
+            // Hide the console window
+            FreeConsole();
 
             // Register the app to be auto startup
             //using (var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))

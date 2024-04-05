@@ -4,8 +4,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using MBDRPC.Core;
 using MBDRPC.Helpers;
+
+using OfficeDRPC.Core;
 
 namespace OfficeDRPC
 {
@@ -132,9 +133,12 @@ namespace OfficeDRPC
                 }
                 else
                 {
-                    var windowName = openWindowNames[0];
+                    if (openWindowNames.Length > 0)
+                    {
+                        var windowName = openWindowNames[0];
 
-                    wordPresence.UpdateDetails($"Editing: {windowName}");
+                        wordPresence.UpdateDetails($"Editing: {windowName}");
+                    }
                 }
             }
             else

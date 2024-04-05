@@ -1,7 +1,9 @@
 using System;
 using System.IO;
 using System.Threading;
-using MBDRPC.Core;
+
+using OutlookDRPC.Core;
+
 using MBDRPC.Helpers;
 
 namespace OutlookDRPC

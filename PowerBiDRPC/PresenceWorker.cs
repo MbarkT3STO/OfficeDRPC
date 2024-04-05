@@ -7,7 +7,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-using MBDRPC.Core;
+using PowerBiDRPC.Core;
+
 using MBDRPC.Helpers;
 
 namespace PowerBiDRPC

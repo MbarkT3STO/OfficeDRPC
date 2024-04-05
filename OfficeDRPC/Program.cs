@@ -11,12 +11,18 @@ namespace OfficeDRPC
 {
     internal class Program
     {
+        [DllImport( "kernel32.dll")]
+        public static extern bool FreeConsole();
+
         static void Main(string[] args)
         {
             // Hide the console window
             //var handle = GetConsoleWindow();
             //// To hide:
             //ShowWindow(handle, SW_HIDE);
+
+            // Hide the console window
+            //FreeConsole();
 
             // Register the app to be auto startup
             //using (var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
@@ -29,7 +35,10 @@ namespace OfficeDRPC
             worker.Start();
 
 
-            Console.ReadKey();
+            //Console.ReadKey();
+
+            // sleep thread forever
+            //Thread.Sleep(Timeout.Infinite);
 
             // Dispose the timers
             worker.Timer.Dispose();

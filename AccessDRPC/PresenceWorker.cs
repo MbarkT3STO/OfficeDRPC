@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using MBDRPC.Core;
+using AccessDRPC.Core;
 using MBDRPC.Helpers;
 
 namespace AccessDRPC
@@ -151,9 +151,12 @@ namespace AccessDRPC
                 }
                 else
                 {
-                    var windowName = openWindowNames[0];
+                    if ( openWindowNames.Length > 0 )
+                    {
+                        var windowName = openWindowNames[0];
 
-                    presence.UpdateDetails($"Managing database: {windowName}");                    
+                        presence.UpdateDetails($"Managing database: {windowName}");
+                    }
                 }
 
 

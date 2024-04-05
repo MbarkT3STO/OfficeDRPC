@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DRPCWorker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4dc000bdfc5709e55f9f6b2f9d51636f34b81e0a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b32f5fcd82ec1bedfdef56b988079069f4e68edf")]
 [assembly: System.Reflection.AssemblyProductAttribute("DRPCWorker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DRPCWorker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
