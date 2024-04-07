@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{835B7DBC-FB0D-4EE9-B948-0C0554221801}|ExcelDRPC\\ExcelDRPC.csproj|c:\\users\\mbark.azuread\\source\\repos\\mbarkt3sto\\officedrpc\\exceldrpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{835B7DBC-FB0D-4EE9-B948-0C0554221801}|ExcelDRPC\\ExcelDRPC.csproj|solutionrelative:exceldrpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\officedrpccommander\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|solutionrelative:officedrpccommander\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|c:\\users\\mbark.azuread\\source\\repos\\mbarkt3sto\\officedrpc\\officedrpccommander\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\officedrpccommander\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|solutionrelative:officedrpccommander\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,7 +34,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Program.cs",
               "RelativeDocumentMoniker": "OfficeDRPCCommander\\Program.cs",
@@ -38,20 +42,31 @@
               "RelativeToolTip": "OfficeDRPCCommander\\Program.cs",
               "ViewState": "AQIAABAAAAAAAAAAAAAqwCMAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T14:34:46.605Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T14:34:46.605Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Worker.cs",
               "DocumentMoniker": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Worker.cs",
               "RelativeDocumentMoniker": "OfficeDRPCCommander\\Worker.cs",
               "ToolTip": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Worker.cs",
               "RelativeToolTip": "OfficeDRPCCommander\\Worker.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAA1wCQAAAAiAAAA",
+              "ViewState": "AQIAABkAAAAAAAAAAAA1wB4AAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T07:28:35.81Z",
+              "WhenOpened": "2024-04-05T07:28:35.81Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\ExcelDRPC\\Program.cs",
+              "RelativeDocumentMoniker": "ExcelDRPC\\Program.cs",
+              "ToolTip": "C:\\Users\\MBARK.AzureAD\\source\\repos\\MbarkT3STO\\OfficeDRPC\\ExcelDRPC\\Program.cs",
+              "RelativeToolTip": "ExcelDRPC\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-07T09:51:36.631Z",
               "EditorCaption": ""
             }
           ]
