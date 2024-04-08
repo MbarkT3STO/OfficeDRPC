@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading;
+
 using MBDRPC.Helpers;
 
 using OfficeDRPC.Core;
@@ -15,10 +18,31 @@ namespace OfficeDRPC
         private Presence wordPresence   = new Presence();
         private bool     isWordFirstRun = true;
         private DateTime wordStartTime;
-        private string   currentWordProcessName;
+        private string   currentWordProcessName    = "WINWORD";
         private string   officeAppSubscriptionType = "Mirosoft Office";
+
         public  Timer    Timer;
-  
+
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        static extern int GetWindowText(IntPtr hWnd, string lpString, int nMaxCount);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern int GetClassName(IntPtr hWnd, [Out] StringBuilder lpClassName, int nMaxCount);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass, string lpszWindow);
+
+
 
         /// <summary>
         /// Starts the presence
@@ -29,14 +53,22 @@ namespace OfficeDRPC
         }
 
 
+        /// <summary>
+        /// Stops the presence
+        /// </summary>
+        public void Stop()
+        {
+            wordPresence.ShutDown();
+            Timer.Dispose();
+        }
+
+
         private void CheckMicrosoftWord()
         {
-            var isMsWordRunning = RunningAppChecker.IsAppRunning("winword");
-            if (isMsWordRunning)
+            if (RunningAppChecker.IsMicrosoftWordRunning())
             {
                 if (isWordFirstRun)
                 {
-                    currentWordProcessName = "WINWORD";
                     officeAppSubscriptionType = GetOfficeVersion();
 
                     wordPresence.InitializePresence("1223964264449183765");
@@ -68,10 +100,8 @@ namespace OfficeDRPC
         private static bool IsAnyWordWindowOpen()
         {
             // Check if Microsoft Word has any open documents
-            var processes = Process.GetProcessesByName( "WINWORD" )
-                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) );
-
-            return processes.Any();
+            return Process
+                  .GetProcessesByName("WINWORD").Any(p => !string.IsNullOrEmpty(p.MainWindowTitle));
         }
 
 
@@ -81,9 +111,9 @@ namespace OfficeDRPC
         private static string[] GetWordOpenWindowNames()
         {
             // Retrieve the names of all open documents/windows in Microsoft Word
-            var windowNames = Process.GetProcessesByName( "WINWORD" )
-                                     .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) )
-                                     .Select( p => p.MainWindowTitle.Replace( " - Word" , "" ) )
+            var windowNames = Process.GetProcessesByName("WINWORD")
+                                     .Where(p => !string.IsNullOrEmpty(p.MainWindowTitle))
+                                     .Select(p => p.MainWindowTitle.Replace(" - Word", ""))
                                      .ToArray();
 
             return windowNames;
@@ -95,12 +125,8 @@ namespace OfficeDRPC
         /// </summary>
         private static bool IsHomeScreenActive()
         {
-            var openWindowNames = GetWordOpenWindowNames();
-
-            if ( openWindowNames.Length <= 0 ) return false;
-
-            var windowName = openWindowNames[0];
-            return ! ( windowName.EndsWith( " - Word" ) );
+            var handle = FindWindow(null, "Word");
+            return handle != IntPtr.Zero;
         }
 
 
@@ -112,7 +138,32 @@ namespace OfficeDRPC
             if (openWindowNames.Count <= 0) return false;
 
             var windowName = openWindowNames[0];
-            return windowName.Equals( "Word" );
+            return windowName.Equals("Word");
+        }
+
+
+        /// <summary>
+        /// Gets the name of the active window/file
+        /// </summary>
+        private static string GetActiveWindowName()
+        {
+            // Microsoft  Word is running, check for the active window
+            var foregroundWindow = GetForegroundWindow();
+
+            if (foregroundWindow == IntPtr.Zero) return string.Empty;
+
+            // Get the window title
+            const int nChars = 256;
+            var windowTitle = new string(' ', nChars);
+            GetWindowText(foregroundWindow, windowTitle, nChars);
+
+            if (!windowTitle.Contains(" - Word")) return string.Empty;
+
+            // Remove from ' - ' to the end from the window title
+            var fileName = windowTitle.Substring(0, windowTitle.IndexOf(" - ", StringComparison.Ordinal));
+
+            return fileName;
+
         }
 
 
@@ -125,19 +176,17 @@ namespace OfficeDRPC
             //Check if any documents are open
             if (IsAnyWordWindowOpen())
             {
-                var openWindowNames = GetWordOpenWindowNames();
-
-                if (IsHomeScreenActive(openWindowNames))
+                if (IsHomeScreenActive())
                 {
                     wordPresence.UpdateDetails("Home screen");
                 }
                 else
                 {
-                    if (openWindowNames.Length > 0)
-                    {
-                        var windowName = openWindowNames[0];
+                    var activeWindowName = GetActiveWindowName();
 
-                        wordPresence.UpdateDetails($"Editing: {windowName}");
+                    if (activeWindowName != string.Empty)
+                    {
+                        wordPresence.UpdateDetails($"Editing: {activeWindowName}");
                     }
                 }
             }

@@ -3,21 +3,46 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading;
+
 using AccessDRPC.Core;
+
 using MBDRPC.Helpers;
 
 namespace AccessDRPC
 {
     public class PresenceWorker
     {
-        private Presence presence = new Presence();
-        private string officeAppSubscriptionType = "Mirosoft Office";
-        private bool isFirstRun = true;
+        private Presence presence                  = new Presence();
+        private string   officeAppSubscriptionType = "Mirosoft Office";
+        private bool     isFirstRun                = true;
         private DateTime startTime;
-        private string processName;
+        private string   processName = "MSACCESS";
 
         public Timer Timer;
+
+
+
+        [DllImport( "user32.dll", SetLastError = true)]
+        static extern IntPtr GetForegroundWindow();
+
+        [DllImport( "user32.dll", SetLastError = true)]
+        static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport( "user32.dll", SetLastError = true)]
+        static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        [DllImport( "user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        static extern int GetWindowText(IntPtr hWnd, string lpString, int nMaxCount);
+
+        [DllImport( "user32.dll", SetLastError = true)]
+        static extern int GetClassName(IntPtr hWnd, [Out] StringBuilder lpClassName, int nMaxCount);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass, string lpszWindow);
+
 
 
         /// <summary>
@@ -28,12 +53,19 @@ namespace AccessDRPC
             Timer = new Timer(_ => CheckMicrosoftAccess(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
         }
 
+        /// <summary>
+        /// Stops the presence
+        /// </summary>
+        public void Stop()
+        {
+            presence.ShutDown();
+            Timer.Dispose();
+        }
+
 
         private void CheckMicrosoftAccess()
         {
-            processName = "MSACCESS";
-            var isPowerPointAppRunning = RunningAppChecker.IsAppRunning(processName);
-            if (isPowerPointAppRunning)
+            if (RunningAppChecker.IsMicrosoftAccessRunning())
             {
                 if (isFirstRun)
                 {
@@ -70,10 +102,8 @@ namespace AccessDRPC
         private static bool IsAnyOpenWindow()
         {
             // Check if Microsoft Access is running
-            var processes = Process.GetProcessesByName( "MSACCESS" )
-                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) );
-
-            return processes.Any();
+            return Process
+                  .GetProcessesByName("MSACCESS").Any(p => !string.IsNullOrEmpty(p.MainWindowTitle));
         }
 
 
@@ -112,12 +142,8 @@ namespace AccessDRPC
         /// </summary>
         private static bool IsHomeScreenActive()
         {
-            var openWindowNames = GetAccessOpenWindowNames();
-
-            if (openWindowNames.Length <= 0) return false;
-
-            var windowName = openWindowNames[0];
-            return ! ( windowName.StartsWith( "Access - " ) );
+            var handle = FindWindow(null, "Access");
+            return handle != IntPtr.Zero;
         }
 
 
@@ -129,9 +155,37 @@ namespace AccessDRPC
             if (openWindowNames.Count <= 0) return false;
 
             var windowName = openWindowNames[0];
-            return windowName.Equals( "Access" );
+            return windowName.Equals("Access");
         }
 
+
+        /// <summary>
+        /// Gets the name of the active window/file
+        /// </summary>
+        private static string GetActiveWindowName()
+        {
+            // App is running, check for the active window
+            var foregroundWindow = GetForegroundWindow();
+
+            if (foregroundWindow == IntPtr.Zero) return string.Empty;
+
+            // Get the window title
+            const int nChars      = 256;
+            var       windowTitle = new string(' ', nChars);
+            GetWindowText(foregroundWindow, windowTitle, nChars);
+
+            if ( windowTitle.Contains( "-" ) && windowTitle.Contains( ":" ) )
+            {
+                // Remove between 'Access - ' and ':' to the end from the window title
+                var fileName = windowTitle.Substring( windowTitle.IndexOf( " - " , StringComparison.Ordinal ) + 3 ,
+                                                      windowTitle.IndexOf( ":" ,   StringComparison.Ordinal ) -
+                                                      windowTitle.IndexOf( " - " , StringComparison.Ordinal ) - 3 );
+
+                return fileName;
+            }
+
+            return string.Empty;
+        }
 
 
 
@@ -143,23 +197,19 @@ namespace AccessDRPC
             //Check if any database is open
             if (IsAnyOpenWindow())
             {
-                var openWindowNames = GetAccessOpenWindowNames();
-
-                if(IsHomeScreenActive(openWindowNames))
+                if (IsHomeScreenActive())
                 {
                     presence.UpdateDetails("Home screen");
                 }
                 else
                 {
-                    if ( openWindowNames.Length > 0 )
-                    {
-                        var windowName = openWindowNames[0];
+                    var activeWindowName = GetActiveWindowName();
 
-                        presence.UpdateDetails($"Managing database: {windowName}");
+                    if (activeWindowName != string.Empty)
+                    {
+                        presence.UpdateDetails($"Managing database: {activeWindowName}");
                     }
                 }
-
-
             }
             else
             {
@@ -182,11 +232,11 @@ namespace AccessDRPC
 
         public static string GetOfficeVersion()
         {
-            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string office365Path = Path.Combine(appDataPath, "Microsoft", "Office");
+            var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            var office365Path = Path.Combine(appDataPath, "Microsoft", "Office");
 
-            string programFilesPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
-            string perpetualOfficePath = Path.Combine(programFilesPath, "Microsoft Office", "root", "Office16");
+            var programFilesPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+            var perpetualOfficePath = Path.Combine(programFilesPath, "Microsoft Office", "root", "Office16");
 
             if (Directory.Exists(office365Path))
             {

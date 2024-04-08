@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading;
 
 using PowerPointDRPC.Core;
@@ -17,9 +19,32 @@ namespace PowerPointDRPC
         private string   officeAppSubscriptionType = "Mirosoft Office";
         private bool     isFirstRun                = true;
         private DateTime startTime;
-        private string   processName;
+        private string   processName = "POWERPNT";
 
-        public Timer Timer;
+        public  Timer    Timer;
+
+
+
+
+        [DllImport( "user32.dll", SetLastError = true)]
+        static extern IntPtr GetForegroundWindow();
+
+        [DllImport( "user32.dll", SetLastError = true)]
+        static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport( "user32.dll", SetLastError = true)]
+        static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        [DllImport( "user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        static extern int GetWindowText(IntPtr hWnd, string lpString, int nMaxCount);
+
+        [DllImport( "user32.dll", SetLastError = true)]
+        static extern int GetClassName(IntPtr hWnd, [Out] StringBuilder lpClassName, int nMaxCount);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass, string lpszWindow);
+
+
 
 
         /// <summary>
@@ -31,11 +56,19 @@ namespace PowerPointDRPC
         }
 
 
+        /// <summary>
+        /// Stops the presence
+        /// </summary>
+        public void Stop()
+        {
+            presence.ShutDown();
+            Timer.Dispose();
+        }
+
+
         private void CheckMicrosoftPowerPoint()
         {
-            processName = "POWERPNT";
-            var isPowerPointAppRunning = RunningAppChecker.IsAppRunning(processName);
-            if (isPowerPointAppRunning)
+            if (RunningAppChecker.IsMicrosoftPowerPointRunning())
             {
                 if (isFirstRun)
                 {
@@ -71,11 +104,9 @@ namespace PowerPointDRPC
         /// </summary>
         private static bool IsAnyOpenWindow()
         {
-            // Check if Microsoft PowerPoint is running
-            var processes = Process.GetProcessesByName( "POWERPNT" )
-                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) );
-
-            return processes.Any();
+            // Check if Microsoft PowerPoint has any open window
+            return Process
+                  .GetProcessesByName("POWERPNT").Any(p => !string.IsNullOrEmpty(p.MainWindowTitle));
         }
 
 
@@ -99,12 +130,8 @@ namespace PowerPointDRPC
         /// </summary>
         private static bool IsHomeScreenActive()
         {
-            var openWindowNames = GetPowerPointOpenWindowNames();
-
-            if (openWindowNames.Length <= 0) return false;
-
-            var windowName = openWindowNames[0];
-            return ! ( windowName.EndsWith( " - PowerPoint" ) );
+            var handle = FindWindow(null, "PowerPoint");
+            return handle != IntPtr.Zero;
         }
 
 
@@ -120,6 +147,30 @@ namespace PowerPointDRPC
         }
 
 
+        /// <summary>
+        /// Gets the name of the active window/file
+        /// </summary>
+        private static string GetActiveWindowName()
+        {
+            // App is running, check for the active window
+            var foregroundWindow = GetForegroundWindow();
+
+            if (foregroundWindow == IntPtr.Zero) return string.Empty;
+
+            // Get the window title
+            const int nChars      = 256;
+            var       windowTitle = new string(' ', nChars);
+            GetWindowText(foregroundWindow, windowTitle, nChars);
+
+            if (!windowTitle.Contains(" - PowerPoint")) return string.Empty;
+
+            // Remove from ' - ' to the end from the window title
+            var fileName = windowTitle.Substring(0, windowTitle.IndexOf(" - ", StringComparison.Ordinal));
+
+            return fileName;
+
+        }
+
 
 
 
@@ -131,19 +182,17 @@ namespace PowerPointDRPC
             //Check if any presentation is open
             if (IsAnyOpenWindow())
             {
-                var openWindowNames = GetPowerPointOpenWindowNames();
-
-                if (IsHomeScreenActive(openWindowNames))
+                if (IsHomeScreenActive())
                 {
                     presence.UpdateDetails("Home screen");
                 }
                 else
                 {
-                    if (openWindowNames.Length > 0)
-                    {
-                        var windowName = openWindowNames[0];
+                    var activeWindowName = GetActiveWindowName();
 
-                        presence.UpdateDetails($"Editing: {windowName}");
+                    if (activeWindowName != string.Empty)
+                    {
+                        presence.UpdateDetails($"Editing: {activeWindowName}");
                     }
                 }
             }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading;
 
 using PublisherDRPC.Core;
@@ -17,9 +19,32 @@ namespace PublisherDRPC
         private string   officeAppSubscriptionType = "Mirosoft Office";
         private bool     isFirstRun                = true;
         private DateTime startTime;
-        private string   processName;
+        private string   processName = "MSPUB";
 
-        public Timer Timer;
+        public  Timer    Timer;
+
+
+
+
+        [DllImport( "user32.dll", SetLastError = true)]
+        static extern IntPtr GetForegroundWindow();
+
+        [DllImport( "user32.dll", SetLastError = true)]
+        static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport( "user32.dll", SetLastError = true)]
+        static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        [DllImport( "user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        static extern int GetWindowText(IntPtr hWnd, string lpString, int nMaxCount);
+
+        [DllImport( "user32.dll", SetLastError = true)]
+        static extern int GetClassName(IntPtr hWnd, [Out] StringBuilder lpClassName, int nMaxCount);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass, string lpszWindow);
+
+
 
 
         /// <summary>
@@ -30,14 +55,19 @@ namespace PublisherDRPC
             Timer = new Timer(_ => CheckMicrosoftPublisher(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
         }
 
+        /// <summary>
+        /// Stops the presence
+        /// </summary>
+        public void Stop()
+        {
+            presence.ShutDown();
+            Timer.Dispose();
+        }
+
 
         private void CheckMicrosoftPublisher()
         {
-            processName = "MSPUB"; // Default value
-
-            var isRunning = RunningAppChecker.IsAppRunning(processName);
-
-            if (isRunning)
+            if (RunningAppChecker.IsMicrosoftPublisherRunning())
             {
                 if (isFirstRun)
                 {
@@ -73,10 +103,8 @@ namespace PublisherDRPC
         private static bool IsAnyOpenWindow()
         {
             // Check if Microsoft Publisher is running
-            var processes = Process.GetProcessesByName( "MSPUB" )
-                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) );
-
-            return processes.Any();
+            return Process
+                  .GetProcessesByName("MSPUB").Any(p => !string.IsNullOrEmpty(p.MainWindowTitle));
         }
 
 
@@ -100,12 +128,8 @@ namespace PublisherDRPC
         /// </summary>
         private static bool IsHomeScreenActive()
         {
-            var openWindowNames = GetPublisherOpenWindowNames();
-
-            if (openWindowNames.Length <= 0) return false;
-
-            var windowName = openWindowNames[0];
-            return ! ( windowName.EndsWith( " - Publisher" ) );
+            var handle = FindWindow(null, "Publisher");
+            return handle != IntPtr.Zero;
         }
 
         /// <summary>
@@ -121,6 +145,33 @@ namespace PublisherDRPC
 
 
 
+        /// <summary>
+        /// Gets the name of the active window/file
+        /// </summary>
+        private static string GetActiveWindowName()
+        {
+            // App is running, check for the active window
+            var foregroundWindow = GetForegroundWindow();
+
+            if (foregroundWindow == IntPtr.Zero) return string.Empty;
+
+            // Get the window title
+            const int nChars      = 256;
+            var       windowTitle = new string(' ', nChars);
+            GetWindowText(foregroundWindow, windowTitle, nChars);
+
+            if (!windowTitle.Contains(" - Publisher")) return string.Empty;
+
+            // Remove from ' - ' to the end from the window title
+            var fileName = windowTitle.Substring(0, windowTitle.IndexOf(" - ", StringComparison.Ordinal));
+
+            return fileName;
+
+        }
+
+
+
+
 
         /// <summary>
         /// Updates the presence
@@ -130,19 +181,17 @@ namespace PublisherDRPC
             //Check if any composition is open
             if (IsAnyOpenWindow())
             {
-                var openWindowNames = GetPublisherOpenWindowNames();
-
-                if (IsHomeScreenActive(openWindowNames))
+                if (IsHomeScreenActive())
                 {
                     presence.UpdateDetails("Home screen");
                 }
                 else
                 {
-                    if (openWindowNames.Length > 0)
-                    {
-                        var windowName = openWindowNames[0];
+                    var activeWindowName = GetActiveWindowName();
 
-                        presence.UpdateDetails($"Editing: {windowName}");
+                    if (activeWindowName != string.Empty)
+                    {
+                        presence.UpdateDetails($"Editing: {activeWindowName}");
                     }
                 }
             }
@@ -167,11 +216,11 @@ namespace PublisherDRPC
 
         public static string GetOfficeVersion()
         {
-            string appDataPath   = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string office365Path = Path.Combine(appDataPath, "Microsoft", "Office");
+            var appDataPath   = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            var office365Path = Path.Combine(appDataPath, "Microsoft", "Office");
 
-            string programFilesPath    = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
-            string perpetualOfficePath = Path.Combine(programFilesPath, "Microsoft Office", "root", "Office16");
+            var programFilesPath    = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+            var perpetualOfficePath = Path.Combine(programFilesPath, "Microsoft Office", "root", "Office16");
 
             if (Directory.Exists(office365Path))
             {

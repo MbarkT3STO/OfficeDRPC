@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 
@@ -19,6 +20,9 @@ namespace OfficeDRPCCommander
             {
                 // Hide the console window
                 FreeConsole();
+
+                var currentProcess = Process.GetCurrentProcess();
+                currentProcess.PriorityClass = ProcessPriorityClass.BelowNormal;
 
                 // Register the app to be auto startup
                 using (var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))

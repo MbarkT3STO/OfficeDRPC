@@ -14,7 +14,7 @@ namespace OutlookDRPC
         private string   officeAppSubscriptionType = "Mirosoft Office";
         private bool     isFirstRun                = true;
         private DateTime startTime;
-        private string   processName;
+        private string   processName = "olk"; // Default value
 
         public Timer Timer;
 
@@ -24,16 +24,13 @@ namespace OutlookDRPC
         /// </summary>
         public void Start()
 		{
-            Timer = new Timer(_ => CheckMicrosoftOutlook(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+            Timer = new Timer(_ => CheckMicrosoftOutlook(), null, TimeSpan.Zero, TimeSpan.FromSeconds(20));
         }
 
 
         private void CheckMicrosoftOutlook()
         {
-            processName = "olk"; // Default value
-
             var isRunning = RunningAppChecker.IsOneAppRunningEndingWith( "Outlook" , "olk" );
-            processName = RunningAppChecker.GetFirstProcessNameEndingWith( "Outlook" , "olk" );
 
             if (isRunning)
             {
@@ -48,9 +45,9 @@ namespace OutlookDRPC
 
                     presence.UpdateDetails(officeAppSubscriptionType);
 
-
-                    startTime  = RunningAppChecker.GetProcessStartTime(processName);
-                    isFirstRun = false;
+                    processName = RunningAppChecker.GetFirstProcessNameEndingWith("Outlook", "olk");
+                    startTime   = RunningAppChecker.GetProcessStartTime( processName );
+                    isFirstRun  = false;
                 }
 
                 UpdatePresence();
@@ -68,7 +65,7 @@ namespace OutlookDRPC
         /// </summary>
         private void UpdatePresence()
         {
-            UpdatePresenceTime();
+            //UpdatePresenceTime();
             presence.UpdatePresence();
         }
 
@@ -84,11 +81,11 @@ namespace OutlookDRPC
 
         public static string GetOfficeVersion()
         {
-            string appDataPath   = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string office365Path = Path.Combine(appDataPath, "Microsoft", "Office");
+            var appDataPath   = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            var office365Path = Path.Combine(appDataPath, "Microsoft", "Office");
 
-            string programFilesPath    = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
-            string perpetualOfficePath = Path.Combine(programFilesPath, "Microsoft Office", "root", "Office16");
+            var programFilesPath    = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+            var perpetualOfficePath = Path.Combine(programFilesPath, "Microsoft Office", "root", "Office16");
 
             if (Directory.Exists(office365Path))
             {

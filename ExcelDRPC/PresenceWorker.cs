@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading;
 using ExcelDRPC.Core;
 using MBDRPC.Helpers;
@@ -11,12 +13,33 @@ namespace ExcelDRPC
 {
 	public class PresenceWorker
     {
-        private string   officeAppSubscriptionType = "Mirosoft Office";
-		private Presence presence                  = new Presence();
-        private bool     isFirstRun                = true;
-        private DateTime startTime;
-        private string   processName;
+        private          string   officeAppSubscriptionType = "Mirosoft Office";
+		private readonly Presence presence                  = new Presence();
+        private          bool     isFirstRun                = true;
+        private          DateTime startTime;
+        private const    string   processName = "EXCEL";
+
         public  Timer    Timer;
+
+
+        [DllImport( "user32.dll", SetLastError = true)]
+        static extern IntPtr GetForegroundWindow();
+
+        [DllImport( "user32.dll", SetLastError = true)]
+        static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport( "user32.dll", SetLastError = true)]
+        static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        [DllImport( "user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        static extern int GetWindowText(IntPtr hWnd, string lpString, int nMaxCount);
+
+        [DllImport( "user32.dll", SetLastError = true)]
+        static extern int GetClassName(IntPtr hWnd, [Out] StringBuilder lpClassName, int nMaxCount);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass, string lpszWindow);
+
 
 
         /// <summary>
@@ -27,15 +50,22 @@ namespace ExcelDRPC
             Timer = new Timer(_ => CheckMicrosoftExcel(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
         }
 
+        /// <summary>
+        /// Stops the presence
+        /// </summary>
+        public void Stop()
+        {
+            presence.ShutDown();
+            Timer.Dispose();
+        }
+
 
         private void CheckMicrosoftExcel()
         {
-            var isMsExcelRunning = RunningAppChecker.IsAppRunning("excel");
-            if (isMsExcelRunning)
+            if (RunningAppChecker.IsMicrosoftExcelRunning())
             {
                 if (isFirstRun)
                 {
-                    processName    = "EXCEL";
                     officeAppSubscriptionType = GetOfficeVersion();
 
                     presence.InitializePresence("1223982816459489350");
@@ -69,11 +99,9 @@ namespace ExcelDRPC
         /// </summary>
         private static bool IsAnyOpenWindow()
         {
-            // Check if Microsoft Excel workbook is open
-            var processes = Process.GetProcessesByName( "EXCEL" )
-                                   .Where( p => ! string.IsNullOrEmpty( p.MainWindowTitle ) );
-
-            return processes.Any();
+            // Check if Microsoft Excel has any open documents
+            return Process
+                  .GetProcessesByName("EXCEL").Any(p => !string.IsNullOrEmpty(p.MainWindowTitle));
         }
 
 
@@ -97,12 +125,8 @@ namespace ExcelDRPC
         /// </summary>
         private static bool IsHomeScreenActive()
         {
-            var openWindowNames = GetExcelOpenWindowNames();
-
-            if (openWindowNames.Length <= 0) return false;
-
-            var windowName = openWindowNames[0];
-            return !(windowName.EndsWith(" - Excel"));
+            var handle = FindWindow(null, "Excel");
+            return handle != IntPtr.Zero;
         }
 
         /// <summary>
@@ -117,6 +141,30 @@ namespace ExcelDRPC
         }
 
 
+        /// <summary>
+        /// Gets the name of the active window/file
+        /// </summary>
+        private static string GetActiveWindowName()
+        {
+            // App is running, check for the active window
+            var foregroundWindow = GetForegroundWindow();
+
+            if (foregroundWindow == IntPtr.Zero) return string.Empty;
+
+            // Get the window title
+            const int nChars      = 256;
+            var       windowTitle = new string(' ', nChars);
+            GetWindowText(foregroundWindow, windowTitle, nChars);
+
+            if (!windowTitle.Contains(" - Excel")) return string.Empty;
+
+            // Remove from ' - ' to the end from the window title
+            var fileName = windowTitle.Substring(0, windowTitle.IndexOf(" - ", StringComparison.Ordinal));
+
+            return fileName;
+
+        }
+
 
 
         /// <summary>
@@ -127,19 +175,17 @@ namespace ExcelDRPC
             //Check if any workbook is open
             if (IsAnyOpenWindow())
             {
-                var openWindowNames = GetExcelOpenWindowNames();
-
-                if (IsHomeScreenActive(openWindowNames))
+                if (IsHomeScreenActive())
                 {
                     presence.UpdateDetails("Home screen");
                 }
                 else
                 {
-                    if (openWindowNames.Length > 0)
-                    {
-                        var windowName = openWindowNames[0];
+                    var activeWindowName = GetActiveWindowName();
 
-                        presence.UpdateDetails($"Editing: {windowName}");
+                    if (activeWindowName != string.Empty)
+                    {
+                        presence.UpdateDetails($"Editing: {activeWindowName}");
                     }
                 }
             }

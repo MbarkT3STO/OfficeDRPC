@@ -10,13 +10,13 @@ namespace WhiteboardDRPC
 {
 	public class PresenceWorker
     {
-        private Presence presence                  = new Presence();
-        private string   officeAppSubscriptionType = "Mirosoft Office";
-        private bool     isFirstRun                = true;
-        private DateTime startTime;
-        private string   processName;
+        private readonly Presence presence                  = new Presence();
+        private          string   officeAppSubscriptionType = "Mirosoft Office";
+        private          bool     isFirstRun                = true;
+        private          DateTime startTime;
+        private const    string   processName = "MicrosoftWhiteboard";
 
-        public Timer Timer;
+        public  Timer    Timer;
 
 
         /// <summary>
@@ -24,17 +24,13 @@ namespace WhiteboardDRPC
         /// </summary>
         public void Start()
 		{
-            Timer = new Timer(_ => CheckMicrosoftWhiteboard(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+            Timer = new Timer(_ => CheckMicrosoftWhiteboard(), null, TimeSpan.Zero, TimeSpan.FromSeconds(20));
         }
 
 
         private void CheckMicrosoftWhiteboard()
         {
-            //processName = "Microsoft.WhiteboardApp_8wekyb3d8bbwe!App";       
-            processName = "MicrosoftWhiteboard";
-
-            var isRunning = RunningAppChecker.IsAppRunning(processName);
-            if (isRunning)
+            if (RunningAppChecker.IsMicrosoftWhiteboardRunning())
             {
                 if (isFirstRun)
                 {
@@ -67,7 +63,7 @@ namespace WhiteboardDRPC
         /// </summary>
         private void UpdatePresence()
         {
-            UpdatePresenceTime();
+            //UpdatePresenceTime();
             presence.UpdatePresence();
         }
 
@@ -83,11 +79,11 @@ namespace WhiteboardDRPC
 
         public static string GetOfficeVersion()
         {
-            string appDataPath   = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string office365Path = Path.Combine(appDataPath, "Microsoft", "Office");
+            var appDataPath   = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            var office365Path = Path.Combine(appDataPath, "Microsoft", "Office");
 
-            string programFilesPath    = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
-            string perpetualOfficePath = Path.Combine(programFilesPath, "Microsoft Office", "root", "Office16");
+            var programFilesPath    = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+            var perpetualOfficePath = Path.Combine(programFilesPath, "Microsoft Office", "root", "Office16");
 
             if (Directory.Exists(office365Path))
             {
