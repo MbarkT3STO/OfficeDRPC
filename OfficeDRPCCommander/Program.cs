@@ -42,7 +42,7 @@ namespace OfficeDRPCCommander
                 // Keep the app running
                 Thread.Sleep(Timeout.Infinite);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Environment.Exit(0);
             }

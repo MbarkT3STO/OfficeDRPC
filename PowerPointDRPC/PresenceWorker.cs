@@ -162,10 +162,13 @@ namespace PowerPointDRPC
             var       windowTitle = new string(' ', nChars);
             GetWindowText(foregroundWindow, windowTitle, nChars);
 
-            if (!windowTitle.Contains(" - PowerPoint")) return string.Empty;
+            var trimmedWindowTitle = windowTitle.Trim().Trim("\0".ToCharArray());
 
-            // Remove from ' - ' to the end from the window title
-            var fileName = windowTitle.Substring(0, windowTitle.IndexOf(" - ", StringComparison.Ordinal));
+            if (!trimmedWindowTitle.EndsWith("- PowerPoint", StringComparison.Ordinal))
+                return string.Empty;
+
+            // Remove from ' - PowerPoint' to the end from the window title
+            var fileName = windowTitle.Substring(0, windowTitle.IndexOf(" - PowerPoint", StringComparison.Ordinal));
 
             return fileName;
 

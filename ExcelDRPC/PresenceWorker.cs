@@ -156,13 +156,15 @@ namespace ExcelDRPC
             var       windowTitle = new string(' ', nChars);
             GetWindowText(foregroundWindow, windowTitle, nChars);
 
-            if (!windowTitle.Contains(" - Excel")) return string.Empty;
+            var trimmedWindowTitle = windowTitle.Trim().Trim("\0".ToCharArray());
 
-            // Remove from ' - ' to the end from the window title
-            var fileName = windowTitle.Substring(0, windowTitle.IndexOf(" - ", StringComparison.Ordinal));
+            if (!trimmedWindowTitle.EndsWith("- Excel", StringComparison.Ordinal)) 
+                return string.Empty;
+
+            // Remove from ' - Excel' to the end from the window title
+            var fileName = windowTitle.Substring(0, windowTitle.IndexOf(" - Excel", StringComparison.Ordinal));
 
             return fileName;
-
         }
 
 

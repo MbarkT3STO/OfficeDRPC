@@ -157,10 +157,13 @@ namespace OfficeDRPC
             var windowTitle = new string(' ', nChars);
             GetWindowText(foregroundWindow, windowTitle, nChars);
 
-            if (!windowTitle.Contains(" - Word")) return string.Empty;
+            var trimmedWindowTitle = windowTitle.Trim().Trim("\0".ToCharArray());
 
-            // Remove from ' - ' to the end from the window title
-            var fileName = windowTitle.Substring(0, windowTitle.IndexOf(" - ", StringComparison.Ordinal));
+            if (!trimmedWindowTitle.EndsWith("- Word", StringComparison.Ordinal))
+                return string.Empty;
+
+            // Remove from ' - Word' to the end from the window title
+            var fileName = windowTitle.Substring(0, windowTitle.IndexOf(" - Word", StringComparison.Ordinal));
 
             return fileName;
 

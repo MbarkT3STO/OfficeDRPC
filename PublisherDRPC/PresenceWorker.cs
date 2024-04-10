@@ -160,10 +160,13 @@ namespace PublisherDRPC
             var       windowTitle = new string(' ', nChars);
             GetWindowText(foregroundWindow, windowTitle, nChars);
 
-            if (!windowTitle.Contains(" - Publisher")) return string.Empty;
+            var trimmedWindowTitle = windowTitle.Trim().Trim("\0".ToCharArray());
 
-            // Remove from ' - ' to the end from the window title
-            var fileName = windowTitle.Substring(0, windowTitle.IndexOf(" - ", StringComparison.Ordinal));
+            if (!trimmedWindowTitle.EndsWith("- Publisher", StringComparison.Ordinal))
+                return string.Empty;
+
+            // Remove from ' - Publisher' to the end from the window title
+            var fileName = windowTitle.Substring(0, windowTitle.IndexOf(" - Publisher", StringComparison.Ordinal));
 
             return fileName;
 
