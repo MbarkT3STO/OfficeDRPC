@@ -11,11 +11,10 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("dotnet-DRPCWorker-205e0da0-89f0-4d82-a490-e0872b64c101")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("DRPCWorker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b32f5fcd82ec1bedfdef56b988079069f4e68edf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7842b87c6b3664f718177e9d6e2cdd1ad2c47534")]
 [assembly: System.Reflection.AssemblyProductAttribute("DRPCWorker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DRPCWorker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

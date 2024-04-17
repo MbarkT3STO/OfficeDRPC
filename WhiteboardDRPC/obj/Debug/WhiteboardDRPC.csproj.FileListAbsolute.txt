@@ -18,3 +18,13 @@ C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\obj\Deb
 C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\obj\Debug\Whiteboa.0F8A7721.Up2Date
 C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\obj\Debug\WhiteboardDRPC.exe
 C:\Users\MBARK.AzureAD\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\obj\Debug\WhiteboardDRPC.pdb
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\bin\Debug\WhiteboardDRPC.exe.config
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\bin\Debug\WhiteboardDRPC.exe
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\bin\Debug\WhiteboardDRPC.pdb
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\bin\Debug\MBDRPC.dll
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\bin\Debug\MBDRPC.pdb
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\obj\Debug\WhiteboardDRPC.csproj.AssemblyReference.cache
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\obj\Debug\WhiteboardDRPC.csproj.CoreCompileInputs.cache
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\obj\Debug\Whiteboa.0F8A7721.Up2Date
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\obj\Debug\WhiteboardDRPC.exe
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\WhiteboardDRPC\obj\Debug\WhiteboardDRPC.pdb

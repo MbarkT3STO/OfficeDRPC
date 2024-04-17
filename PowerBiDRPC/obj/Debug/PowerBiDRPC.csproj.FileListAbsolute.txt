@@ -18,3 +18,13 @@ C:\Users\MBARK\source\repos\OfficeDRPC\PowerBiDRPC\obj\Debug\PowerBiDRPC.csproj.
 C:\Users\MBARK\source\repos\OfficeDRPC\PowerBiDRPC\obj\Debug\PowerBiD.DFB96028.Up2Date
 C:\Users\MBARK\source\repos\OfficeDRPC\PowerBiDRPC\obj\Debug\PowerBiDRPC.exe
 C:\Users\MBARK\source\repos\OfficeDRPC\PowerBiDRPC\obj\Debug\PowerBiDRPC.pdb
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\PowerBiDRPC\bin\Debug\PowerBiDRPC.exe.config
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\PowerBiDRPC\bin\Debug\PowerBiDRPC.exe
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\PowerBiDRPC\bin\Debug\PowerBiDRPC.pdb
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\PowerBiDRPC\bin\Debug\MBDRPC.dll
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\PowerBiDRPC\bin\Debug\MBDRPC.pdb
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\PowerBiDRPC\obj\Debug\PowerBiDRPC.csproj.AssemblyReference.cache
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\PowerBiDRPC\obj\Debug\PowerBiDRPC.csproj.CoreCompileInputs.cache
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\PowerBiDRPC\obj\Debug\PowerBiD.DFB96028.Up2Date
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\PowerBiDRPC\obj\Debug\PowerBiDRPC.exe
+C:\Users\MBARK\source\repos\MbarkT3STO\OfficeDRPC\PowerBiDRPC\obj\Debug\PowerBiDRPC.pdb
