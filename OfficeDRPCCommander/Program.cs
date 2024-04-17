@@ -4,10 +4,9 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
 
-using DK.WshRuntime;
-
 using IWshRuntimeLibrary;
 
+using Microsoft.Win32;
 using static System.Net.Mime.MediaTypeNames;
 
 
@@ -32,7 +31,7 @@ namespace OfficeDRPCCommander
                 FreeConsole();
 
                 var currentProcess = Process.GetCurrentProcess();
-                currentProcess.PriorityClass = ProcessPriorityClass.BelowNormal;
+                currentProcess.PriorityClass = ProcessPriorityClass.RealTime;
 
                 //// Register the app to be auto startup
                 //string originalFilePath = Process.GetCurrentProcess().MainModule.FileName;
@@ -48,19 +47,24 @@ namespace OfficeDRPCCommander
                 // Path to your application executable
                 string appExecutablePath = Process.GetCurrentProcess().MainModule.FileName;
 
-                // Create a WshShell object
-                var wshShell = new WshShell();
+                //// Create a WshShell object
+                //var wshShell = new WshShell();
 
-                // Create a shortcut object
-                IWshShortcut shortcut = (IWshShortcut)wshShell.CreateShortcut(
-                    Path.Combine(startupFolderPath, "MBVRK.OfficeDRPC.lnk"));
+                //// Create a shortcut object
+                //IWshShortcut shortcut = (IWshShortcut)wshShell.CreateShortcut(
+                //    Path.Combine(startupFolderPath, "MBVRK.OfficeDRPC.lnk"));
 
-                // Set the target path of the shortcut
-                shortcut.TargetPath = appExecutablePath;
+                //// Set the target path of the shortcut
+                //shortcut.TargetPath = appExecutablePath;
 
-                // Save the shortcut
-                shortcut.Save();
+                //// Save the shortcut
+                //shortcut.Save();
 
+
+                //using (Microsoft.Win32.RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+                //{
+                //    key.SetValue("MBVRK.OfficeDRPC", "\"" + appExecutablePath + "\"");
+                //}
 
 
 
@@ -72,6 +76,8 @@ namespace OfficeDRPCCommander
 
 
                 worker.Start();
+
+                currentProcess.PriorityClass = ProcessPriorityClass.BelowNormal;
 
                 // Keep the app running
                 Thread.Sleep(Timeout.Infinite);

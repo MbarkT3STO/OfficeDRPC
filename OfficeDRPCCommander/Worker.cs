@@ -62,15 +62,15 @@ namespace OfficeDRPCCommander
             }
             else
             {
-                WordWorker.Timer.Dispose();
-                ExcelWorker.Timer.Dispose();
-                PowerPointWorker.Timer.Dispose();
-                AccessWorker.Timer.Dispose();
-                PublisherWorker.Timer.Dispose();
-                OutlookWorker.Timer.Dispose();
-                WhiteboardWorker.Timer.Dispose();
-                OneDriveWorker.Timer.Dispose();
-                PowerBiWorker.Timer.Dispose();
+                WordWorker?.Timer?.Dispose();
+                ExcelWorker?.Timer?.Dispose();
+                PowerPointWorker?.Timer?.Dispose();
+                AccessWorker?.Timer?.Dispose();
+                PublisherWorker?.Timer?.Dispose();
+                OutlookWorker?.Timer?.Dispose();
+                WhiteboardWorker?.Timer?.Dispose();
+                OneDriveWorker?.Timer?.Dispose();
+                PowerBiWorker?.Timer?.Dispose();
             }
         }
     }

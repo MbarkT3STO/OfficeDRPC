@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\MBARK\\source\\repos\\MbarkT3STO\\OfficeDRPC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|c:\\users\\mbark\\source\\repos\\mbarkt3sto\\officedrpc\\officedrpccommander\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|solutionrelative:officedrpccommander\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|C:\\Users\\MBARK\\source\\repos\\MbarkT3STO\\OfficeDRPC\\officedrpccommander\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|solutionrelative:officedrpccommander\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|C:\\Users\\MBARK\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|solutionrelative:OfficeDRPCCommander\\Worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|c:\\users\\mbark\\source\\repos\\mbarkt3sto\\officedrpc\\officedrpccommander\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56AD1A2F-F1B9-4B14-993E-7BDE13E5FDBA}|OfficeDRPCCommander\\OfficeDRPCCommander.csproj|solutionrelative:officedrpccommander\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,20 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Worker.cs",
               "DocumentMoniker": "C:\\Users\\MBARK\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Worker.cs",
               "RelativeDocumentMoniker": "OfficeDRPCCommander\\Worker.cs",
               "ToolTip": "C:\\Users\\MBARK\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Worker.cs",
               "RelativeToolTip": "OfficeDRPCCommander\\Worker.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAwBgAAABIAAAA",
+              "ViewState": "AQIAADYAAAAAAAAAAAAwwDoAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-07T22:48:42.615Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -51,28 +48,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\MBARK\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Program.cs",
               "RelativeDocumentMoniker": "OfficeDRPCCommander\\Program.cs",
               "ToolTip": "C:\\Users\\MBARK\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\Program.cs",
               "RelativeToolTip": "OfficeDRPCCommander\\Program.cs",
-              "ViewState": "AQIAAEMAAAAAAAAAAAAAAB4AAAAqAAAA",
+              "ViewState": "AQIAABYAAAAAAAAAAAAwwB4AAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-10T09:25:19.816Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "app.manifest",
-              "DocumentMoniker": "C:\\Users\\MBARK\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\app.manifest",
-              "RelativeDocumentMoniker": "OfficeDRPCCommander\\app.manifest",
-              "ToolTip": "C:\\Users\\MBARK\\source\\repos\\MbarkT3STO\\OfficeDRPC\\OfficeDRPCCommander\\app.manifest",
-              "RelativeToolTip": "OfficeDRPCCommander\\app.manifest",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAABRAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001203|",
-              "WhenOpened": "2024-04-17T09:19:42.138Z"
             }
           ]
         }
